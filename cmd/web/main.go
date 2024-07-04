@@ -5,11 +5,17 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"claybook.perryfranks.nerd/
 )
 
 type application struct {
 	errorLog *log.Logger
 	infoLog  *log.Logger
+}
+
+func testSpells() SpellBook {
+
 }
 
 func main() {

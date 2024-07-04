@@ -311,3 +311,12 @@ footer {
     color: #6A6C6F;
     text-align: center;
 }
+
+.spellcard {
+    border: 4px solid black;
+    background: LightGray;
+}
+
+list-group-item {
+
+}

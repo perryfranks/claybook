@@ -10,6 +10,7 @@ type Spell struct {
 	Level       int    `yaml:"level"`
 	Name        string `yaml:"name"`
 	Description string `yaml:"description"`
+	HigherLevel string `yaml:"higherlevel"`
 	RangeFeet   int    `yaml:"range"`
 	Duration    string `yaml:"duration"`
 	Casting     string `yaml:"casting"`
@@ -25,8 +26,14 @@ type Spellbook struct {
 }
 
 // this may end up with checks later on
-func (sb *Spellbook) addSpell(spell Spell) {
+func (sb *Spellbook) AddSpell(spell Spell) {
 	sb.Spells = append(sb.Spells, spell)
+}
+
+// Add a spell and then call the SaveSpellBook function on exit
+func (sb *Spellbook) AddAndSave(spell Spell, file string) {
+	sb.AddSpell(spell)
+	SaveSpellbook(file, *sb)
 }
 
 // Probable Functions:

@@ -1,0 +1,18 @@
+{{define "spellcard"}}
+<div class="spellcard">
+  <div class="card-header">
+ {{.Level}} - {{.Name}} 
+  </div>
+  <div class="card-body">
+  <p class="card-text">{{.Description}}</p>
+  <p class="card-text">At higher levels:{{.HigherLevel}}</p>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Range: {{.RangeFeet}}ft</li>
+    <li class="list-group-item">Duration: {{.Duration}}</li>
+    <li class="list-group-item">Casting: {{.Casting}}</li>
+    <li class="list-group-item">Components: {{.Components}}</li>
+    <li class="list-group-item">School: {{.School}}</li>
+  </ul>
+  </div>
+</div>
+{{end}}

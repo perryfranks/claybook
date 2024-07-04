@@ -1,0 +1,13 @@
+{{define "title"}}Spell Book {{end}}
+
+{{define "main"}}
+<div class='snippet'>
+{{if .Spellbook}}
+	{{range .Spellbook}}
+	{{template "spellcard" .}}
+	{{end}}
+</table>
+{{else}}
+	<p>No spells found</p> 
+{{end}}
+{{end}}

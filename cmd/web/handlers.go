@@ -36,7 +36,30 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) spells(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("spell page"))
+	// printout := fmt.Sprintf("%v", app.spellbook)
+	// w.Write([]byte(printout))
+
+	files := []string{
+		"./ui/html/base.tmpl",
+		"./ui/html/partials/nav.tmpl",
+		"./ui/html/pages/spellbook.tmpl",
+		"./ui/html/partials/spellcard.tmpl",
+	}
+
+	ts, err := template.ParseFiles(files...)
+	if err != nil {
+		app.serverError(w, err)
+		return
+	}
+
+	data := &templateData{
+		Spellbook: &app.spellbook.Spells,
+	}
+
+	err = ts.ExecuteTemplate(w, "base", data)
+	if err != nil {
+		app.serverError(w, err)
+	}
 }
 
 func (app *application) edit(w http.ResponseWriter, r *http.Request) {

@@ -1,0 +1,19 @@
+spells:
+    - level: 0
+      name: "Acid Splash"
+      description: "You hurl a bubble of acid.\nChoose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage"      
+      higherlevel: "This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+      range: 60
+      duration: "Instanteous"
+      casting: "1 Action"
+      components: "V,S"
+      school: "Conjuration"
+    - level: 0
+      name: "Message"
+      description: "You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear. You can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence, 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the spell. The spell doesnt have to follow a straight line and can travel freely around corners or through openings."      
+      higherlevel: ""
+      range: 120
+      duration: "1 round"
+      casting: "1 Action"
+      components: "V,S, M"
+      school: "Transmutation"

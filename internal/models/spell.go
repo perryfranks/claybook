@@ -16,13 +16,18 @@ type Spell struct {
 	Casting     string `yaml:"casting"`
 	Components  string `yaml:"components"`
 	School      string `yaml:"school"`
-
 	// could add a roll function with some thinking
+}
+
+type SpellSlot struct {
+	max  int `yaml:"max"`
+	used int `yaml:"used"`
 }
 
 type Spellbook struct {
 	// I don't think there is a reason to pre-sort these. No need for performance
-	Spells []Spell `yaml:"spells"`
+	Spells     []Spell           `yaml:"spells"`
+	SpellSlots map[int]SpellSlot `yaml:"spellslots"`
 }
 
 // this may end up with checks later on

@@ -2,12 +2,18 @@
 
 {{define "main"}}
 <div class='snippet'>
-{{if .Spellbook}}
+	{{if .SpellSlots}}
+
+	{{ end}}
+
+	{{if .Spellbook}}
 	{{range .Spellbook}}
-	{{template "spellcard" .}}
+	<div class="spellblock">
+		{{template "spellcard" .}}
+	</div>
 	{{end}}
-</table>
-{{else}}
-	<p>No spells found</p> 
-{{end}}
-{{end}}
+	</table>
+	{{else}}
+	<p>No spells found</p>
+	{{end}}
+	{{end}}

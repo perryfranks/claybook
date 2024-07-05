@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -21,29 +22,22 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
 	ts, err := template.ParseFiles(files...)
 	if err != nil {
-		// log.Println(err.Error())
-		// // http.Error(w, "Internal Server error", 500)
-		//
-		// return
 		app.serverError(w, err)
 	}
 	err = ts.ExecuteTemplate(w, "base", nil)
 	if err != nil {
-		// app.errorLog.Println(err.Error())
-		// http.Error(w, "Internal Server Error", 500)
 		app.serverError(w, err)
 	}
 }
 
 func (app *application) spells(w http.ResponseWriter, r *http.Request) {
-	// printout := fmt.Sprintf("%v", app.spellbook)
-	// w.Write([]byte(printout))
 
 	files := []string{
 		"./ui/html/base.tmpl",
 		"./ui/html/partials/nav.tmpl",
 		"./ui/html/pages/spellbook.tmpl",
 		"./ui/html/partials/spellcard.tmpl",
+		"./ui/html/partials/spellslotbar.tmpl",
 	}
 
 	ts, err := template.ParseFiles(files...)
@@ -52,9 +46,14 @@ func (app *application) spells(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	app.spellbook.SortSpellSlots()
 	data := &templateData{
 		Spellbook: &app.spellbook.Spells,
+		// TODO: will probs need to sort this
+		SpellSlots: &app.spellbook.SpellSlots,
 	}
+
+	fmt.Println(data.String())
 
 	err = ts.ExecuteTemplate(w, "base", data)
 	if err != nil {

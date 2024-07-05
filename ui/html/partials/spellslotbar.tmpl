@@ -1,0 +1,16 @@
+{{define "spellslotcard"}}
+
+<div class="container-sidebar">
+	<div class="sidebar">
+		<p><b>Spell Slots (current/max):</b></p>
+		{{ if .SpellSlots }}
+		{{range .SpellSlots}}
+		<p>{{.Level}}: {{.Remaining}}/{{.Max}}</p>
+		{{end}}
+		{{else}}
+		<p>None</p>
+		{{end}}
+	</div>
+</div>
+
+{{end}}

@@ -17,7 +17,8 @@ color: #34495E;
 overflow-y: scroll;
 }
 
-header, nav, main, footer {
+/* header, nav, main, footer { */
+header, nav, footer {
 padding: 2px calc((100% - 800px) / 2) 0;
 }
 
@@ -337,7 +338,6 @@ background: #F1F3F6
 .spellcard {
 border: 4px solid black;
 /* background: LightGray; */
-
 }
 
 .card-header {
@@ -351,4 +351,25 @@ text-align: left;
 padding: 5px;
 padding-left: 10px;
 background: #F1F3F6
+}
+
+.spells {
+flex: 0.7 0 auto;
+width: 70%;
+padding-left: 10px;
+}
+
+
+.container-sidebar {
+padding: 5px;
+border-right: 1px solid black;
+hight: 100%;
+
+}
+
+.spellpage {
+/* display: flex; */
+/* justify-content: start; */
+display: flex;
+overflow-wrap: break-word;
 }

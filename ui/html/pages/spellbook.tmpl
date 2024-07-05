@@ -1,19 +1,19 @@
 {{define "title"}}Spell Book {{end}}
 
 {{define "main"}}
-<div class='snippet'>
-	{{if .SpellSlots}}
-
-	{{ end}}
-
-	{{if .Spellbook}}
-	{{range .Spellbook}}
-	<div class="spellblock">
-		{{template "spellcard" .}}
+<div class="spellpage">
+	{{template "spellslotcard" .}}
+	<div class='spells'>
+		{{if .Spellbook}}
+		{{range .Spellbook}}
+		<div class="spellblock">
+			{{template "spellcard" .}}
+		</div>
+		{{end}}
+		</table>
+		{{else}}
+		<p>No spells found</p>
+		{{end}}
 	</div>
-	{{end}}
-	</table>
-	{{else}}
-	<p>No spells found</p>
-	{{end}}
-	{{end}}
+</div>
+{{end}}

@@ -1,17 +1,26 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
 
-func (app *application) routes() *http.ServeMux {
-	mux := http.NewServeMux()
+	"github.com/julienschmidt/httprouter"
+	"github.com/justinas/alice"
+)
 
-	fileServer := http.FileServer(http.Dir("./ui/static"))
+func (app *application) routes() http.Handler {
 
-	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
+	router := httprouter.New()
 
-	mux.HandleFunc("/", app.home)
-	mux.HandleFunc("/spells", app.spells)
-	mux.HandleFunc("/edit", app.edit)
+	fileServer := http.FileServer(http.Dir("./ui/static/"))
+	router.Handler(http.MethodGet, "/static/*filepath", http.StripPrefix("/static", fileServer))
 
-	return mux
+	router.HandlerFunc(http.MethodGet, "/", app.home)
+	router.HandlerFunc(http.MethodGet, "/spells", app.spells)
+	router.HandlerFunc(http.MethodGet, "/edit", app.edit)
+	router.Handler(http.MethodPost, "/spells/update", app.updateSpellSlot)
+
+	standard := alice.New(secureHeaders)
+
+	return standard.Then(router)
+
 }

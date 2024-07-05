@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -10,9 +11,10 @@ import (
 )
 
 type application struct {
-	errorLog  *log.Logger
-	infoLog   *log.Logger
-	spellbook models.Spellbook
+	errorLog      *log.Logger
+	infoLog       *log.Logger
+	spellbook     models.Spellbook
+	templateCache map[string]*template.Template
 }
 
 func testSpells() models.Spellbook {
@@ -34,15 +36,22 @@ func main() {
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
+	// template cache
+	templateCache, err := newTemplateData()
+	if err != nil {
+		errorLog.Fatal(err)
+	}
+
 	sb, err := models.LoadSpellbook("internal/data/spells.yaml")
 	if err != nil {
 		panic(err)
 	}
 
 	app := &application{
-		errorLog:  errorLog,
-		infoLog:   infoLog,
-		spellbook: sb,
+		errorLog:      errorLog,
+		infoLog:       infoLog,
+		spellbook:     sb,
+		templateCache: templateCache,
 	}
 	defer models.SaveSpellbook("internal/data/spells.yaml", app.spellbook)
 

@@ -1,6 +1,9 @@
 package main
 
 import (
+	"html/template"
+	"path/filepath"
+
 	"claybook.perryfranks.nerd/internal/models"
 )
 
@@ -39,4 +42,40 @@ func (t *templateData) String() string {
 
 	return printout
 
+}
+
+func newTemplateData() (map[string]*template.Template, error) {
+
+	cache := map[string]*template.Template{}
+
+	pages, err := filepath.Glob("./ui/html/pages/*.tmpl")
+	if err != nil {
+		return nil, err
+	}
+
+	for _, page := range pages {
+		// extract the file name (like "home.tmpl") from the full path
+		name := filepath.Base(page)
+
+		ts, err := template.ParseFiles("./ui/html/base.tmpl", page)
+		if err != nil {
+			return nil, err
+		}
+
+		// grab all the partials
+		ts, err = ts.ParseGlob("./ui/html/partials/*.tmpl")
+		if err != nil {
+			return nil, err
+		}
+
+		ts, err = ts.ParseFiles(page)
+		if err != nil {
+			return nil, err
+		}
+
+		cache[name] = ts
+
+	}
+
+	return cache, nil
 }

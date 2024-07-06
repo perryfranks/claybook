@@ -29,6 +29,22 @@ min-height: calc(100vh - 345px);
 overflow: auto;
 }
 
+.container-sidebar .sidebar .spell-button {
+background-color: orange;
+color: white;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+border-radius: 4px;
+font-size: 16px;
+margin-top: 10px;
+}
+
+/* Hover state for the spell-button */
+.container-sidebar .sidebar .spell-button:hover {
+background-color: red;
+}
+
 h1 a {
 font-size: 36px;
 font-weight: bold;
@@ -151,23 +167,23 @@ border-bottom: 1px solid #E4E5E7;
 -webkit-transform: rotate(-45deg);
 }
 
-a.button, input[type="submit"] {
-background-color: #62CB31;
-border-radius: 3px;
-color: #FFFFFF;
-padding: 18px 27px;
-border: none;
-display: inline-block;
-margin-top: 18px;
-font-weight: 700;
-}
-
-a.button:hover, input[type="submit"]:hover {
-background-color: #4EB722;
-color: #FFFFFF;
-cursor: pointer;
-text-decoration: none;
-}
+/* a.button, input[type="submit"] { */
+/* background-color: #62CB31; */
+/* border-radius: 3px; */
+/* color: #FFFFFF; */
+/* padding: 18px 27px; */
+/* border: none; */
+/* display: inline-block; */
+/* margin-top: 18px; */
+/* font-weight: 700; */
+/* } */
+/**/
+/* a.button:hover, input[type="submit"]:hover { */
+/* background-color: #4EB722; */
+/* color: #FFFFFF; */
+/* cursor: pointer; */
+/* text-decoration: none; */
+/* } */
 
 form div {
 margin-bottom: 18px;
@@ -215,58 +231,20 @@ width: 100%;
 height: 266px;
 }
 
-button {
-background: none;
-padding: 0;
-border: none;
-color: #62CB31;
-text-decoration: none;
-}
+/* button { */
+/* background: none; */
+/* padding: 0; */
+/* border: none; */
+/* color: #62CB31; */
+/* text-decoration: none; */
+/* } */
+/**/
+/* button:hover { */
+/* color: #4EB722; */
+/* text-decoration: underline; */
+/* cursor: pointer; */
+/* } */
 
-button:hover {
-color: #4EB722;
-text-decoration: underline;
-cursor: pointer;
-}
-
-.snippet {
-background-color: #FFFFFF;
-border: 1px solid #E4E5E7;
-border-radius: 3px;
-}
-
-.snippet pre {
-padding: 18px;
-border-top: 1px solid #E4E5E7;
-border-bottom: 1px solid #E4E5E7;
-}
-
-.snippet .metadata {
-background-color: #F7F9FA;
-color: #6A6C6F;
-padding: 0.75em 18px;
-overflow: auto;
-}
-
-.snippet .metadata span {
-float: right;
-}
-
-.snippet .metadata strong {
-color: #34495E;
-}
-
-.snippet .metadata time {
-display: inline-block;
-}
-
-.snippet .metadata time:first-child {
-float: left;
-}
-
-.snippet .metadata time:last-child {
-float: right;
-}
 
 div.flash {
 color: #FFFFFF;

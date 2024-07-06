@@ -1,9 +1,7 @@
 spells:
     - level: 0
       name: Acid Splash
-      description: |-
-        You hurl a bubble of acid.
-        Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage
+      description: You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage
       higherlevel: This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
       range: 60
       duration: Instanteous
@@ -17,12 +15,58 @@ spells:
       range: 120
       duration: 1 round
       casting: 1 Action
-      components: V,S, M
+      components: V,S,M
       school: Transmutation
+    - level: 1
+      name: Detect Magic (Ritual, Concentration)
+      description: For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any. The spell can penetrate most barriers, but is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
+      higherlevel: ""
+      range: 0
+      duration: up to 10 mins
+      casting: 1 Action / Ritual
+      components: V,S,
+      school: Diviniation
+    - level: 1
+      name: False Life
+      description: Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 temporary hit points for the duration
+      higherlevel: When you cast this spell using a spell slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.
+      range: 0
+      duration: 1 hour
+      casting: 1 Action
+      components: V,S,M
+      school: Necromancy
+    - level: 1
+      name: Mending
+      description: This spell repairs a single break or tear in an object you touch, such as broken chain link, two halves of a broken key, a torn cloack, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage. This spell can physically repair a magic item or construct, but the spell cant restore magic to such an object.
+      higherlevel: ""
+      range: 1
+      duration: Instantaneous
+      casting: 1 minute
+      components: V,S,M
+      school: Transmutation
+    - level: 0
+      name: Mending
+      description: This spell repairs a single break or tear in an object you touch, such as broken chain link, two halves of a broken key, a torn cloack, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage. This spell can physically repair a magic item or construct, but the spell cant restore magic to such an object.
+      higherlevel: ""
+      range: 0
+      duration: Instantaneous
+      casting: 1 minute
+      components: V,S,M
+      school: Transmutation
+    - level: 0
+      name: Control Flames
+      description: "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways: You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location. You instantaneously extinguish the flames within the cube. You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour. You cause simple shapes—such as the vague form of a creature, an inanimate object, or a location—to appear within the flames and animate as you like. The shapes last for 1 hour. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
+      higherlevel: ""
+      range: 60
+      duration: Instantaneous or 1 hour
+      casting: 1 action
+      components: S
+      school: Transmutation
+
 spellslots:
-    - max: 2
-      remaining: 2
-      level: 1
     - max: 0
       remaining: 0
       level: 0
+    - max: 2
+      remaining: 2
+      level: 1

@@ -9,9 +9,10 @@ import (
 
 // holding structure for any data we want to pass to our
 type templateData struct {
-	Spellbook  *[]models.Spell
-	Spell      *models.Spell // So far unused
-	SpellSlots *[]models.SpellSlot
+	Spellbook     *[]models.Spell
+	Spell         *models.Spell // So far unused
+	SpellSlots    *[]models.SpellSlot
+	SpellsByLevel *[]models.SpellByLevel
 }
 
 func (t *templateData) String() string {

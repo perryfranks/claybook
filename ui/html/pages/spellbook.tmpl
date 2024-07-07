@@ -5,12 +5,19 @@
 	{{template "spellslotcard" .}}
 	<div class='spells'>
 		{{if .Spellbook}}
-		{{range .Spellbook}}
-		<div class="spellblock">
-			{{template "spellcard" .}}
-		</div>
-		{{end}}
-		</table>
+		<details>
+			<summary>Spellbook</summary>
+
+			{{range SpellsByLevel .}}
+			<h3>{{.Level}}</h3>
+			{{range Spells}}
+			<div class="spellblock">
+				{{template "spellcard" .}}
+			</div>
+			{{end}}
+			{{end}}
+			</table>
+		</details>
 		{{else}}
 		<p>No spells found</p>
 		{{end}}

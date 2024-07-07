@@ -43,6 +43,36 @@ func (sb *Spellbook) AddAndSave(spell Spell, file string) {
 	SaveSpellbook(file, *sb)
 }
 
+type SpellByLevel struct {
+	Level  int
+	Spells []Spell
+}
+
+func sortSpellByLevelSet(sbls []SpellByLevel) []SpellByLevel {
+
+}
+
+func (sb *Spellbook) GetSpellsByLevel() []SpellByLevel {
+	var spellsByLevel []SpellByLevel
+
+	for _, spell := range sb.Spells {
+		found := false
+		for i, sbl := range spellsByLevel {
+			if sbl.Level == spell.Level {
+				spellsByLevel[i].Spells = append(spellsByLevel[i].Spells, spell)
+				found = true
+			}
+		}
+		if !found {
+			spellsByLevel = append(spellsByLevel, SpellByLevel{Level: spell.Level, Spells: []Spell{spell}})
+		}
+	}
+
+	// Sort by level as well
+	return sortSpellByLevelSet(spellsByLevel)
+
+}
+
 // Probable Functions:
 // Get spells for level x
 // Read from file

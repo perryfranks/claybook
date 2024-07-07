@@ -7,11 +7,7 @@
     {{if .SpellsByLevel}}
     {{range .SpellsByLevel}}
     <details>
-      <summary class="level-heading">
-        <div class="heading-container">
-          <h3 class="level-heading">Level: {{.Level}}</h3>
-        </div>
-      </summary>
+      <summary>{{.Level}}</summary>
       {{range .Spells}}
       <div class="spellblock">
         {{template "spellcard" .}}
@@ -19,7 +15,6 @@
       {{end}}
       </table>
     </details>
-    <hr class="spelllevel-seperator">
     {{end}}
     {{else}}
     <p>No spells found</p>

@@ -1,0 +1,26 @@
+{{define "title"}}Spell Book {{end}}
+
+{{define "main"}}
+<div class="spellpage">
+	{{template "spellslotcard" .}}
+	<div class='spells'>
+		{{if .Spellbook}}
+		<details>
+			<summary>Spellbook</summary>
+
+			{{range SpellsByLevel .}}
+			<h3>{{.Level}}</h3>
+			{{range Spells}}
+			<div class="spellblock">
+				{{template "spellcard" .}}
+			</div>
+			{{end}}
+			{{end}}
+			</table>
+		</details>
+		{{else}}
+		<p>No spells found</p>
+		{{end}}
+	</div>
+</div>
+{{end}}

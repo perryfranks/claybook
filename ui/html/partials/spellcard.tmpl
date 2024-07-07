@@ -5,11 +5,15 @@
       <b>
         <span class="left">Level: {{.Level}}</span>
         <span class="center">{{.Name}}</span>
+        <span class="right"><button class="spell-button">Cast</button></span>
+        <span class="right"><button class="spell-button">Copy</button></span>
       </b>
     </summary>
     <div class="card-body">
       <p class="card-text">{{.Description}}</p><br>
+      {{if .HigherLevel}}
       <p class="card-text"><b>At higher levels:</b><br>{{.HigherLevel}}</p><br>
+      {{end}}
       <ul class="spell-list-group">
         <li class="list-group-item"><b>Range:</b> {{.RangeFeet}}ft</li>
         <li class="list-group-item"><b>Duration:</b> {{.Duration}}</li>

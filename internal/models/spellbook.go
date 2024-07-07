@@ -48,10 +48,28 @@ type SpellByLevel struct {
 	Spells []Spell
 }
 
-func sortSpellByLevelSet(sbls []SpellByLevel) []SpellByLevel {
+type spellsByLevel []SpellByLevel
 
+func (s spellsByLevel) Len() int {
+	return len(s)
 }
 
+func (s spellsByLevel) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func (s spellsByLevel) Less(i, j int) bool {
+	return s[i].Level < s[j].Level
+}
+
+func (sb *Spellbook) GetSortedSpellsByLevel() []SpellByLevel {
+	sbl := sb.GetSpellsByLevel()
+	// need to cast the slice to the type to use the sort interface
+	sort.Sort(spellsByLevel(sbl))
+	return sbl
+}
+
+// Note these are not sorted
 func (sb *Spellbook) GetSpellsByLevel() []SpellByLevel {
 	var spellsByLevel []SpellByLevel
 
@@ -67,9 +85,7 @@ func (sb *Spellbook) GetSpellsByLevel() []SpellByLevel {
 			spellsByLevel = append(spellsByLevel, SpellByLevel{Level: spell.Level, Spells: []Spell{spell}})
 		}
 	}
-
-	// Sort by level as well
-	return sortSpellByLevelSet(spellsByLevel)
+	return spellsByLevel
 
 }
 

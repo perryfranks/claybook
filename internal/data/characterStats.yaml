@@ -1,0 +1,6 @@
+hitdice:
+    hitdice:
+        - number: 3
+          sides: 8
+        - number: 1
+          sides: 6

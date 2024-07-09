@@ -13,6 +13,7 @@ type templateData struct {
 	Spell         *models.Spell // So far unused
 	SpellSlots    *[]models.SpellSlot
 	SpellsByLevel *[]models.SpellByLevel
+	HitDiceSet    *[]models.HitDice
 }
 
 func (t *templateData) String() string {

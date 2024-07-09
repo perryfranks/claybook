@@ -13,8 +13,11 @@ import (
 type application struct {
 	errorLog      *log.Logger
 	infoLog       *log.Logger
-	spellbook     models.Spellbook
 	templateCache map[string]*template.Template
+
+	// Character stuff
+	characterStats models.CharacterStats
+	spellbook      models.Spellbook
 }
 
 func testSpells() models.Spellbook {
@@ -47,12 +50,23 @@ func main() {
 		panic(err)
 	}
 
+	cs := models.CharacterStats{}
+	err = cs.Load("internal/data/characterStats.yaml")
+	if err != nil {
+		panic(err)
+	}
+
 	app := &application{
 		errorLog:      errorLog,
 		infoLog:       infoLog,
-		spellbook:     sb,
 		templateCache: templateCache,
+
+		spellbook:      sb,
+		characterStats: cs,
 	}
+
+	// NOTE: these are actually never called how I run the sever
+	defer app.characterStats.Save("internal/data/characterStats.yaml")
 	defer models.SaveSpellbook("internal/data/spells.yaml", app.spellbook)
 
 	srv := &http.Server{

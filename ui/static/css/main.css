@@ -29,6 +29,17 @@ min-height: calc(100vh - 345px);
 overflow: auto;
 }
 
+button {
+background-color: orange;
+color: black;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+border-radius: 4px;
+font-size: 16px;
+margin-top: 10px;
+}
+
 .container-sidebar .sidebar .spell-button {
 background-color: orange;
 color: black;

@@ -77,3 +77,8 @@ func (app *application) updateSpellSlot(w http.ResponseWriter, r *http.Request) 
 func (app *application) edit(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("edit page"))
 }
+
+func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("use hit dice"))
+
+}

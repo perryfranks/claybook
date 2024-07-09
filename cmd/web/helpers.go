@@ -53,5 +53,7 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		Spellbook:     &app.spellbook.Spells,
 		SpellSlots:    &app.spellbook.SpellSlots,
 		SpellsByLevel: &sbl,
+		HitDiceSet:    &app.characterStats.HitDiceSet.HitDice,
 	}
+
 }

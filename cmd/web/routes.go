@@ -23,6 +23,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodPost, "/spells", app.updateSpellSlot)
 	router.HandlerFunc(http.MethodGet, "/edit", app.edit)
 
+	router.HandlerFunc(http.MethodGet, "/hitdice", app.useHitDice)
+
 	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
 
 	return standard.Then(router)

@@ -1,0 +1,33 @@
+{{ define "hit-dice" }}
+
+<div class="hit-dice">
+
+  <details>
+    <summary>
+      <h2 class="character-heading">Hit Dice</h2>
+    </summary>
+
+    {{if .HitDiceSet}}
+    {{ range .HitDiceSet }}
+
+    <div class="hit-dice">
+      <form action="/hitdice" method="post">
+        <p> D{{ .Sides }}: <b>{{.Number}}</b>/{{.Number}}</p>
+        <button type="submit" name="hit-dice" value="{{.Sides}}">Expend</button>
+      </form>
+
+    </div>
+
+    {{end}}
+
+    {{else}}
+    <p> No hit dice </p>
+    {{end}}
+
+
+
+  </details>
+
+</div>
+
+{{ end }}

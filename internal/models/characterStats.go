@@ -7,7 +7,8 @@ import (
 )
 
 type CharacterStats struct {
-	HitDiceSet HitDiceSet `yaml:"hitdice"`
+	HitDiceSet  HitDiceSet  `yaml:"hitdice"`
+	MoxiePoints MoxiePoints `yaml:"moxie"`
 }
 
 func (cs *CharacterStats) Save(path string) error {

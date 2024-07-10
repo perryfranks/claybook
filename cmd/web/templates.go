@@ -14,6 +14,7 @@ type templateData struct {
 	SpellSlots    *[]models.SpellSlot
 	SpellsByLevel *[]models.SpellByLevel
 	HitDiceSet    *[]models.HitDice
+	MoxiePoints   *models.MoxiePoints
 }
 
 func (t *templateData) String() string {

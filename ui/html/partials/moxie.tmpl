@@ -1,0 +1,34 @@
+{{define "moxie"}}
+
+<div class="moxie">
+
+  <details>
+    <summary>
+      <h2 class="character-heading">Moxie Points</h2>
+    </summary>
+
+    {{with .MoxiePoints}}
+    <div class="moxie-points">
+      <form action="/moxie" method="post">
+        Moxie points: <b>{{.Current}}</b>/{{.Max}}
+        <button type="submit" name="use" value="true">Expend</button>
+      </form>
+
+    </div>
+    <div class="moxie-reset">
+      <form action="/resetmoxie" method="post">
+        <button type="submit" name="reset" value="true">Reset moxie</button>
+      </form>
+    </div>
+
+    {{else}}
+    <p>No moxie points</p>
+    {{end}}
+
+
+
+  </details>
+
+</div>
+
+{{end}}

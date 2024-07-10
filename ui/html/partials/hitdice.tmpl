@@ -8,17 +8,21 @@
     </summary>
 
     {{if .HitDiceSet}}
-    {{ range .HitDiceSet }}
-
     <div class="hit-dice">
+      {{ range .HitDiceSet }}
+
       <form action="/hitdice" method="post">
-        <p> D{{ .Sides }}: <b>{{.Number}}</b>/{{.Number}}</p>
+        D{{ .Sides }}: <b>{{.Current}}</b>/{{.Number}}
         <button type="submit" name="hit-dice" value="{{.Sides}}">Expend</button>
       </form>
 
+      {{end}}
     </div>
-
-    {{end}}
+    <div class="hit-dice-reset">
+      <form action="/hitdice" method="post">
+        <button type="submit" name="reset" value="true">Reset Hit Dice</button>
+      </form>
+    </div>
 
     {{else}}
     <p> No hit dice </p>

@@ -18,14 +18,7 @@ type application struct {
 	// Character stuff
 	characterStats models.CharacterStats
 	spellbook      models.Spellbook
-}
-
-func testSpells() models.Spellbook {
-	sb := models.Spellbook{}
-	sb.AddSpell(models.Spell{})
-	models.SaveSpellbook("internal/data/spells.yaml", sb)
-
-	return sb
+	savefiles      map[string]string
 }
 
 func main() {
@@ -45,29 +38,32 @@ func main() {
 		errorLog.Fatal(err)
 	}
 
-	sb, err := models.LoadSpellbook("internal/data/spells.yaml")
-	if err != nil {
-		panic(err)
-	}
-
-	cs := models.CharacterStats{}
-	err = cs.Load("internal/data/characterStats.yaml")
-	if err != nil {
-		panic(err)
-	}
-
 	app := &application{
 		errorLog:      errorLog,
 		infoLog:       infoLog,
 		templateCache: templateCache,
 
-		spellbook:      sb,
-		characterStats: cs,
+		spellbook:      models.Spellbook{},
+		characterStats: models.CharacterStats{},
+		savefiles: map[string]string{
+			"spells":         "internal/data/spells.yaml",
+			"characterStats": "internal/data/characterStats.yaml",
+		},
+	}
+
+	app.spellbook, err = models.LoadSpellbook(app.savefiles["spells"])
+	if err != nil {
+		panic(err)
+	}
+
+	err = app.characterStats.Load(app.savefiles["characterStats"])
+	if err != nil {
+		panic(err)
 	}
 
 	// NOTE: these are actually never called how I run the sever
-	defer app.characterStats.Save("internal/data/characterStats.yaml")
-	defer models.SaveSpellbook("internal/data/spells.yaml", app.spellbook)
+	defer app.characterStats.Save(app.savefiles["characterStats"])
+	defer models.SaveSpellbook(app.savefiles["spells"], app.spellbook)
 
 	srv := &http.Server{
 		Addr:     *addr,

@@ -79,6 +79,70 @@ func (app *application) edit(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("use hit dice"))
 
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	rawSides := r.PostForm.Get("hit-dice")
+	sides, err := strconv.Atoi(rawSides)
+	if err == nil {
+		// find the dice in the character's hit dice
+		for i, hd := range app.characterStats.HitDiceSet.HitDice {
+			if hd.Sides == sides {
+				app.characterStats.HitDiceSet.HitDice[i].Use()
+			}
+
+		}
+	}
+
+	// check for reset
+	if r.PostForm.Get("reset") == "true" {
+		fmt.Println("Resetting Hit Dice")
+		app.characterStats.HitDiceSet.Reset()
+	}
+
+	// save the character stats
+	app.characterStats.Save(app.savefiles["characterStats"])
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+
+}
+
+func (app *application) useMoxie(w http.ResponseWriter, r *http.Request) {
+
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	use := r.PostForm.Get("use")
+	if use == "true" {
+		app.characterStats.MoxiePoints.Use()
+	}
+
+	app.characterStats.Save(app.savefiles["characterStats"])
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
+func (app *application) resetMoxie(w http.ResponseWriter, r *http.Request) {
+
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	use := r.PostForm.Get("reset")
+	if use == "true" {
+		app.characterStats.MoxiePoints.Reset()
+	}
+
+	app.characterStats.Save(app.savefiles["characterStats"])
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

@@ -23,7 +23,9 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodPost, "/spells", app.updateSpellSlot)
 	router.HandlerFunc(http.MethodGet, "/edit", app.edit)
 
-	router.HandlerFunc(http.MethodGet, "/hitdice", app.useHitDice)
+	router.HandlerFunc(http.MethodPost, "/hitdice", app.useHitDice)
+	router.HandlerFunc(http.MethodPost, "/moxie", app.useMoxie)
+	router.HandlerFunc(http.MethodPost, "/resetmoxie", app.resetMoxie)
 
 	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
 

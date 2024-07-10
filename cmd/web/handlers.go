@@ -146,3 +146,46 @@ func (app *application) resetMoxie(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
+
+func (app *application) changeHealth(w http.ResponseWriter, r *http.Request) {
+
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	changeRaw := r.PostForm.Get("healthChange")
+	change, err := strconv.Atoi(changeRaw)
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	app.characterStats.CombatStats.ChangeHealth(change)
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+
+}
+
+func (app *application) save(w http.ResponseWriter, r *http.Request) {
+	app.characterStats.Save(app.savefiles["characterStats"])
+	models.SaveSpellbook(app.savefiles["spells"], app.spellbook)
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
+func (app *application) load(w http.ResponseWriter, r *http.Request) {
+	err := app.characterStats.Load(app.savefiles["characterStats"])
+	if err != nil {
+		app.errorLog.Println(err)
+	}
+
+	// err = app.spellbook.Load(app.savefiles["spells"])
+	app.spellbook, err = models.LoadSpellbook(app.savefiles["spells"])
+	if err != nil {
+		app.errorLog.Println(err)
+	}
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+}

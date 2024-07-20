@@ -1,7 +1,7 @@
 hitdice:
     hitdice:
         - number: 3
-          current: 3
+          current: 2
           sides: 8
         - number: 1
           current: 1
@@ -9,3 +9,11 @@ hitdice:
 moxie:
     current: 0
     max: 2
+combatstats:
+    hpmax: 0
+    hpcurrent: 0
+    hptemp: 0
+    armorclass: 0
+    deathsaves: 0
+languages: []
+toolproficiencies: []

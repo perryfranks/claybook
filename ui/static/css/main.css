@@ -6,7 +6,8 @@ font-size: 18px;
 font-family: "Ubuntu Mono", monospace;
 }
 
-html, body {
+html,
+body {
 height: 100%;
 }
 
@@ -18,7 +19,9 @@ overflow-y: scroll;
 }
 
 /* header, nav, main, footer { */
-header, nav, footer {
+header,
+nav,
+footer {
 padding: 2px calc((100% - 800px) / 2) 0;
 }
 
@@ -89,26 +92,13 @@ color: #4EB722;
 text-decoration: underline;
 }
 
-textarea, input:not([type="submit"]) {
+textarea,
+input:not([type="submit"]) {
 font-size: 18px;
 font-family: "Ubuntu Mono", monospace;
 }
 
 header {
-background-image: -webkit-linear-gradient(left, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db
-45%, #62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b
-85%, #c0392b 100%);
-background-image: -moz-linear-gradient(left, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%,
-#62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%,
-#c0392b 100%);
-background-image: -ms-linear-gradient(left, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%,
-#62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%,
-#c0392b 100%);
-background-image: linear-gradient(to right, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%,
-#62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%,
-#c0392b 100%);
-background-size: 100% 6px;
-background-repeat: no-repeat;
 border-bottom: 1px solid #E4E5E7;
 overflow: auto;
 padding-top: 33px;
@@ -208,12 +198,17 @@ form input[type="radio"] {
 margin-left: 18px;
 }
 
-form input[type="text"], form input[type="password"], form input[type="email"] {
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
 padding: 0.75em 18px;
 width: 100%;
 }
 
-form input[type=text], form input[type="password"], form input[type="email"], textarea {
+form input[type=text],
+form input[type="password"],
+form input[type="email"],
+textarea {
 color: #6A6C6F;
 background: #FFFFFF;
 border: 1px solid #E4E5E7;
@@ -231,7 +226,8 @@ font-weight: bold;
 display: block;
 }
 
-.error + textarea, .error + input {
+.error+textarea,
+.error+input {
 border-color: #C0392B !important;
 border-width: 2px !important;
 }
@@ -282,12 +278,14 @@ border-collapse: collapse;
 width: 100%;
 }
 
-td, th {
+td,
+th {
 text-align: left;
 padding: 9px 18px;
 }
 
-th:last-child, td:last-child {
+th:last-child,
+td:last-child {
 text-align: right;
 color: #6A6C6F;
 }
@@ -310,7 +308,7 @@ color: #6A6C6F;
 text-align: center;
 }
 
-details > summary {
+details>summary {
 list-style: none;
 
 }
@@ -393,21 +391,29 @@ overflow-wrap: break-word;
 
 .level-heading {
 display: flex;
-justify-content: center; /* Center horizontally */
-align-items: center; /* Center vertically */
-padding: 0; /* Optional: remove padding for better centering */
-margin: 0; /* Optional: remove margin for better centering */
+justify-content: center;
+/* Center horizontally */
+align-items: center;
+/* Center vertically */
+padding: 0;
+/* Optional: remove padding for better centering */
+margin: 0;
+/* Optional: remove margin for better centering */
 }
 
 .level-heading .heading-container {
 text-align: center;
-width: 100%; /* make this span the whole container */
+width: 100%;
+/* make this span the whole container */
 }
 
 .level-heading h3 {
-margin: 0; /* Remove default margin */
-padding: 0; /* Remove default padding */
-font-size: 1.5em; /* Adjust font size if needed */
+margin: 0;
+/* Remove default margin */
+padding: 0;
+/* Remove default padding */
+font-size: 1.5em;
+/* Adjust font size if needed */
 }
 
 .character-heading {

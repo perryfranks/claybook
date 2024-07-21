@@ -18,6 +18,25 @@
         </tr>
       </thead>
       <tbody>
+        {{if .AbilityScores }}
+        <tr>
+          <td>{{.Str}}</td>
+          <td>{{.Dex}}</td>
+          <td>{{.Con}}</td>
+          <td>{{.Int}}</td>
+          <td>{{.Wis}}</td>
+          <td>{{.Cha}}</td>
+        </tr>
+        <tr>
+          <td><b>2</b></td>
+          <td><b>-1</b></td>
+          <td><b>3</b></td>
+          <td><b>0</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+        </tr>
+
+        {{else }}
         <tr>
           <td>15</td>
           <td>8</td>
@@ -34,6 +53,7 @@
           <td><b>1</b></td>
           <td><b>1</b></td>
         </tr>
+        {{end}}
       </tbody>
     </table>
   </details>

@@ -22,6 +22,7 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/spells", app.spells)
 	router.HandlerFunc(http.MethodPost, "/spells", app.updateSpellSlot)
 	router.HandlerFunc(http.MethodGet, "/edit", app.edit)
+	router.HandlerFunc(http.MethodGet, "/class/traits", app.classTraits)
 
 	router.HandlerFunc(http.MethodPost, "/hitdice", app.useHitDice)
 	router.HandlerFunc(http.MethodPost, "/moxie", app.useMoxie)

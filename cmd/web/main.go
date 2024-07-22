@@ -50,6 +50,15 @@ func main() {
 			"characterStats": "internal/data/characterStats.yaml",
 		},
 	}
+	// for now we will just set the character stats
+	app.characterStats.AbilityScores = models.AbilityScores{
+		Str: 15,
+		Dex: 8,
+		Con: 16,
+		Int: 10,
+		Wis: 12,
+		Cha: 13,
+	}
 
 	app.spellbook, err = models.LoadSpellbook(app.savefiles["spells"])
 	if err != nil {

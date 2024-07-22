@@ -7,6 +7,11 @@ import (
 	"claybook.perryfranks.nerd/internal/models"
 )
 
+// lookup for names of functions and their functions
+var functions = template.FuncMap{
+	"Mod": models.AbilityScoreMod,
+}
+
 // holding structure for any data we want to pass to our
 type templateData struct {
 	Spellbook     *[]models.Spell
@@ -15,6 +20,7 @@ type templateData struct {
 	SpellsByLevel *[]models.SpellByLevel
 	HitDiceSet    *[]models.HitDice
 	MoxiePoints   *models.MoxiePoints
+	AbilityScores *models.AbilityScores
 }
 
 func (t *templateData) String() string {
@@ -60,7 +66,10 @@ func newTemplateData() (map[string]*template.Template, error) {
 		// extract the file name (like "home.tmpl") from the full path
 		name := filepath.Base(page)
 
-		ts, err := template.ParseFiles("./ui/html/base.tmpl", page)
+		// Register the template functions as well.
+		ts, err := template.New(name).Funcs(functions).ParseFiles("./ui/html/base.tmpl")
+
+		// ts, err := template.ParseFiles("./ui/html/base.tmpl", page)
 		if err != nil {
 			return nil, err
 		}

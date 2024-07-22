@@ -2,7 +2,7 @@
 
 
 <div class="abilityscores">
-  <details>
+  <details open=true>
     <summary>
       <h2 class="character-heading">Ability Scores</h2>
     </summary>
@@ -18,7 +18,8 @@
         </tr>
       </thead>
       <tbody>
-        {{if .AbilityScores }}
+        {{with .AbilityScores }}
+
         <tr>
           <td>{{.Str}}</td>
           <td>{{.Dex}}</td>
@@ -28,30 +29,12 @@
           <td>{{.Cha}}</td>
         </tr>
         <tr>
-          <td><b>2</b></td>
-          <td><b>-1</b></td>
-          <td><b>3</b></td>
-          <td><b>0</b></td>
-          <td><b>1</b></td>
-          <td><b>1</b></td>
-        </tr>
-
-        {{else }}
-        <tr>
-          <td>15</td>
-          <td>8</td>
-          <td>16</td>
-          <td>10</td>
-          <td>12</td>
-          <td>13</td>
-        </tr>
-        <tr>
-          <td><b>2</b></td>
-          <td><b>-1</b></td>
-          <td><b>3</b></td>
-          <td><b>0</b></td>
-          <td><b>1</b></td>
-          <td><b>1</b></td>
+          <td><b> {{ Mod .Str }} </b></td>
+          <td><b> {{ Mod .Dex }} </b></td>
+          <td><b> {{ Mod .Con }} </b></td>
+          <td><b> {{ Mod .Int }} </b></td>
+          <td><b> {{ Mod .Wis }} </b></td>
+          <td><b> {{ Mod .Cha }} </b></td>
         </tr>
         {{end}}
       </tbody>

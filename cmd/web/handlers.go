@@ -189,3 +189,7 @@ func (app *application) load(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
+
+func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Comming soon")
+}

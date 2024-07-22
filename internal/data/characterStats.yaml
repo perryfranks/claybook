@@ -1,3 +1,10 @@
+AbilityScores:
+    Strength: 15
+    Dexterity: 8
+    Constitution: 16
+    Intelligence: 10
+    Wisdom: 12
+    Charisma: 13
 hitdice:
     hitdice:
         - number: 3
@@ -7,7 +14,7 @@ hitdice:
           current: 1
           sides: 6
 moxie:
-    current: 0
+    current: 2
     max: 2
 combatstats:
     hpmax: 0

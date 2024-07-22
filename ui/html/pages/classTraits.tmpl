@@ -1,0 +1,23 @@
+{{define "title"}} Class Traits {{end}}
+
+
+{{define "main"}}
+
+<div class="class traits">
+  {{range .ClassTraits}}
+  <div class="trait-list">
+    <details open=true>
+      <summary>
+        <div class="class-heading">ClassName {{.ClassName}}</div>
+      </summary>
+      {{range .Traits}}
+      <div class="card-body">
+        <p class="card-text">{{.Level }}{{.Description}}</p><br>
+      </div>
+      {{end}}
+    </details>
+    {{end}}
+  </div>
+</div>
+
+{{end}}

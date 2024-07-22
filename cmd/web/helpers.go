@@ -55,6 +55,7 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		SpellsByLevel: &sbl,
 		HitDiceSet:    &app.characterStats.HitDiceSet.HitDice,
 		MoxiePoints:   &app.characterStats.MoxiePoints,
+		AbilityScores: &app.characterStats.AbilityScores,
 	}
 
 }

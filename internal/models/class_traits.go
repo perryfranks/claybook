@@ -23,8 +23,8 @@ type ClassTraitsSet struct {
 }
 
 // NOP on duplicate
-// Need to add what to do if the map is empty
-func (cts *ClassTraitsSet) add(ct ClassTraits) {
+// Need to Add what to do if the map is empty
+func (cts *ClassTraitsSet) Add(ct ClassTraits) {
 
 	// create the map if it's empty
 	if cts.ClassTraits == nil {
@@ -46,6 +46,17 @@ func (cts *ClassTraitsSet) add(ct ClassTraits) {
 	}
 }
 
+// Render the ClassTraitsSet as a list for display
+func (cts *ClassTraitsSet) List() []ClassTraits {
+	var l []ClassTraits
+	for _, values := range cts.ClassTraits {
+		l = append(l, values)
+	}
+
+	return l
+
+}
+
 type ClassTraits struct {
 	ClassName Class   `yaml:"Class"`
 	Traits    []Trait `yaml:"Traits"`
@@ -57,5 +68,6 @@ func (ct *ClassTraits) add(t Trait) {
 
 type Trait struct {
 	Level       int    `yaml:"level"`
+	Name        string `yaml:"name"`
 	Description string `yaml:"description"`
 }

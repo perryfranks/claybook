@@ -7,12 +7,13 @@ import (
 )
 
 type CharacterStats struct {
-	AbilityScores     AbilityScores `yaml:"AbilityScores"`
-	HitDiceSet        HitDiceSet    `yaml:"hitdice"`
-	MoxiePoints       MoxiePoints   `yaml:"moxie"`
-	CombatStats       CombatStats   `yaml:"combatstats"`
-	Languages         []string      `yaml:"languages"`
-	ToolProficiencies []string      `yaml:"toolproficiencies"`
+	AbilityScores     AbilityScores  `yaml:"AbilityScores"`
+	HitDiceSet        HitDiceSet     `yaml:"hitdice"`
+	MoxiePoints       MoxiePoints    `yaml:"moxie"`
+	CombatStats       CombatStats    `yaml:"combatstats"`
+	Languages         []string       `yaml:"languages"`
+	ToolProficiencies []string       `yaml:"toolproficiencies"`
+	ClassTraitsSet    ClassTraitsSet `yaml:"ClassTraitsSet"`
 }
 
 func (cs *CharacterStats) Save(path string) error {

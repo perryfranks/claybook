@@ -33,7 +33,7 @@ func TestClassTraitsSetAdd(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			tc.set.add(tc.ct)
+			tc.set.Add(tc.ct)
 			if len(tc.set.ClassTraits) != tc.expectedLen {
 				t.Errorf("got %d, expected %d", len(tc.set.ClassTraits), tc.expectedLen)
 			}

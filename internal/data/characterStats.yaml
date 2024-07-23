@@ -1,21 +1,15 @@
 AbilityScores:
-    Strength: 15
-    Dexterity: 8
-    Constitution: 16
-    Intelligence: 10
-    Wisdom: 12
-    Charisma: 13
+    Strength: 0
+    Dexterity: 0
+    Constitution: 0
+    Intelligence: 0
+    Wisdom: 0
+    Charisma: 0
 hitdice:
-    hitdice:
-        - number: 3
-          current: 2
-          sides: 8
-        - number: 1
-          current: 1
-          sides: 6
+    hitdice: []
 moxie:
-    current: 2
-    max: 2
+    current: 0
+    max: 0
 combatstats:
     hpmax: 0
     hpcurrent: 0
@@ -24,3 +18,11 @@ combatstats:
     deathsaves: 0
 languages: []
 toolproficiencies: []
+ClassTraitsSet:
+    ClassTraits:
+        0:
+            Class: 0
+            Traits:
+                - level: 0
+                  name: ""
+                  description: test

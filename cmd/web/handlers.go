@@ -191,5 +191,7 @@ func (app *application) load(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Comming soon")
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "classTraits.tmpl", data)
+	return
 }

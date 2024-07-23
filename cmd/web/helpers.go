@@ -49,13 +49,15 @@ func (app *application) render(w http.ResponseWriter, status int, page string, d
 // Create a new data struct for any common data that we don't mind passing to all templates
 func (app *application) newTemplateData(r *http.Request) *templateData {
 	sbl := app.spellbook.GetSortedSpellsByLevel()
+	ctl := app.characterStats.ClassTraitsSet.List()
 	return &templateData{
-		Spellbook:     &app.spellbook.Spells,
-		SpellSlots:    &app.spellbook.SpellSlots,
-		SpellsByLevel: &sbl,
-		HitDiceSet:    &app.characterStats.HitDiceSet.HitDice,
-		MoxiePoints:   &app.characterStats.MoxiePoints,
-		AbilityScores: &app.characterStats.AbilityScores,
+		Spellbook:       &app.spellbook.Spells,
+		SpellSlots:      &app.spellbook.SpellSlots,
+		SpellsByLevel:   &sbl,
+		HitDiceSet:      &app.characterStats.HitDiceSet.HitDice,
+		MoxiePoints:     &app.characterStats.MoxiePoints,
+		AbilityScores:   &app.characterStats.AbilityScores,
+		ClassTraitsList: &ctl,
 	}
 
 }

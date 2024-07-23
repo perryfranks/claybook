@@ -50,15 +50,6 @@ func main() {
 			"characterStats": "internal/data/characterStats.yaml",
 		},
 	}
-	// for now we will just set the character stats
-	app.characterStats.AbilityScores = models.AbilityScores{
-		Str: 15,
-		Dex: 8,
-		Con: 16,
-		Int: 10,
-		Wis: 12,
-		Cha: 13,
-	}
 
 	app.spellbook, err = models.LoadSpellbook(app.savefiles["spells"])
 	if err != nil {
@@ -69,6 +60,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	// TODO: Remove this at some point
+	app.characterStats.SetFakeData()
 
 	// NOTE: these are actually never called how I run the sever
 	defer app.characterStats.Save(app.savefiles["characterStats"])

@@ -195,3 +195,9 @@ func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
 	app.render(w, http.StatusOK, "classTraits.tmpl", data)
 	return
 }
+
+func (app *application) features(w http.ResponseWriter, r *http.Request) {
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "features.tmpl", data)
+	return
+}

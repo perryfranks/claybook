@@ -23,6 +23,8 @@ type templateData struct {
 	MoxiePoints     *models.MoxiePoints
 	AbilityScores   *models.AbilityScores
 	ClassTraitsList *[]models.ClassTraits
+	Features        *[]models.Trait
+	CombatStats     *models.CombatStats
 }
 
 func (t *templateData) String() string {

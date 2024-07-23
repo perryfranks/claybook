@@ -108,6 +108,31 @@ func (cs *CharacterStats) SetFakeData() {
 		},
 	}
 
+	features := Features{
+		Feats: []Trait{
+			{
+				Level:       0,
+				Name:        "Construct",
+				Description: "You are a being molded of divine energy and mud or clay. Your creature type is construct instead of humanoid. As such, spells like cure wounds don't affect you, and you are immune to spells like crown of madness or dominate person because they specifically target humanoids. You are immune to poison damage, being poisoned, and diseases. You do not need to eat or breathe, and any food you do attempt to eat falls through the space where your head would be and into the bottom of your armor. Rather than sleeping, you enter an inactive state for 6 hours each day. You do not dream in this state; you are fully aware of your surroundings and notice approaching enemies and other events as normal.",
+			},
+			{
+				Level:       0,
+				Name:        "Construct",
+				Description: "Nonliving as you are, you can be repaired like an object. When the mending spell is cast on you, it has the following alterations: It has a casting time of 1 action. If you have 0 hit points you become stable. As part of the casting of mending the caster may expend any level of spell slot to cause you to regain a number of hit points equal to 1d8, plus their spellcasting ability modifier. For each level of the spell slot expended you regain an additional 1d8 hit points.",
+			},
+			{
+				Level:       0,
+				Name:        "Creation's Intention",
+				Description: "You have a purpose from which you must not deviate, and nothing can make you go against this purpose. From the table below, roll to see what intention your creator had, and what sort of trait it grants you in aid to fulfill that pursuit.",
+			},
+			{
+				Level:       0,
+				Name:        "Exploration",
+				Description: "For your master's sake, you must go far and wide in search of something. You are proficient in the Survival skill and you cannot be lost by nonmagical means.",
+			},
+		},
+	}
+
 	// Now lets set everthing
 	cs.AbilityScores = abilityscores
 	cs.HitDiceSet = hitDiceSet
@@ -116,5 +141,6 @@ func (cs *CharacterStats) SetFakeData() {
 	cs.Languages = languages
 	cs.ToolProficiencies = toolProficiencies
 	cs.ClassTraitsSet = classTraitsSet
+	cs.Features = features
 
 }

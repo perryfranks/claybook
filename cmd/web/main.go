@@ -23,8 +23,6 @@ type application struct {
 
 func main() {
 
-	// _ = testSpells()
-
 	addr := flag.String("addr", ":4000", "HTTP network address")
 
 	flag.Parse()

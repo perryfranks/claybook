@@ -58,6 +58,8 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		MoxiePoints:     &app.characterStats.MoxiePoints,
 		AbilityScores:   &app.characterStats.AbilityScores,
 		ClassTraitsList: &ctl,
+		Features:        &app.characterStats.Features.Feats,
+		CombatStats:     &app.characterStats.CombatStats,
 	}
 
 }

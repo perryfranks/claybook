@@ -4,8 +4,15 @@
 <!-- <h2 class="chracter-heading"> Character sheet </h2> -->
 
 {{ template "abilityscores" .}}
+<hr style="padding: 10px; color: lightgray;">
 {{ template "skills" . }}
+<hr style="padding: 10px; color: lightgray;">
+{{ template "combat-stats" .}}
+<hr style="padding: 10px; color: lightgray;">
 {{ template "moxie" . }}
+<hr style="padding: 10px; color: lightgray;">
 {{ template "saving-throws" .}}
+<hr style="padding: 10px; color: lightgray;">
 {{ template "hit-dice" . }}
+<hr style="padding: 10px; color: lightgray;">
 {{end}}

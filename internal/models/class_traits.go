@@ -69,9 +69,3 @@ type ClassTraits struct {
 func (ct *ClassTraits) add(t Trait) {
 	ct.Traits = append(ct.Traits, t)
 }
-
-type Trait struct {
-	Level       int    `yaml:"level"`
-	Name        string `yaml:"name"`
-	Description string `yaml:"description"`
-}

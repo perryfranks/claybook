@@ -13,7 +13,8 @@ type CharacterStats struct {
 	CombatStats       CombatStats    `yaml:"combatstats"`
 	Languages         []string       `yaml:"languages"`
 	ToolProficiencies []string       `yaml:"toolproficiencies"`
-	ClassTraitsSet    ClassTraitsSet `yaml:"ClassTraitsSet"`
+	ClassTraitsSet    ClassTraitsSet `yaml:"classTraitsSet"`
+	Features          Features       `yaml:"features"`
 }
 
 func (cs *CharacterStats) Save(path string) error {

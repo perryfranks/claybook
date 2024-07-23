@@ -13,6 +13,10 @@ func (c *Class) String() string {
 	return ""
 }
 
+func ClassName(class Class) string {
+	return class.String()
+}
+
 const (
 	Pugilist Class = iota
 	Sorcerer

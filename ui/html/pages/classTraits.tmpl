@@ -4,16 +4,24 @@
 {{define "main"}}
 
 
-<div class="class traits">
+<div class="card-list-outer">
   {{range .ClassTraitsList}}
-  <div class="trait-list">
+  <div>
     <details open=true>
-      <summary>
-        <div class="class-heading">ClassName {{.ClassName}}</div>
+      <summary class="card-header">
+        <div class="heading-container">
+          <h3 class="level-heading">{{ClassName .ClassName}}</h3>
+        </div>
       </summary>
       {{range .Traits}}
-      <div class="card-body">
-        <p class="card-text">{{.Level }}{{.Description}}</p><br>
+      <div class="spellblock">
+        <div class="card-body">
+          <b>
+            <span class="left">Level: {{.Level}} </span>
+            <span class="center">{{.Name}} </span>
+          </b>
+          <p class="card-text">{{.Description}}</p><br>
+        </div>
       </div>
       {{end}}
     </details>

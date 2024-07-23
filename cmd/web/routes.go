@@ -24,6 +24,11 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/edit", app.edit)
 	router.HandlerFunc(http.MethodGet, "/class/traits", app.classTraits)
 
+	// I don't think these should be get requests since they change server state.
+	// we can fix this with htmx
+	router.HandlerFunc(http.MethodGet, "/save", app.save)
+	router.HandlerFunc(http.MethodGet, "/load", app.load)
+
 	router.HandlerFunc(http.MethodPost, "/hitdice", app.useHitDice)
 	router.HandlerFunc(http.MethodPost, "/moxie", app.useMoxie)
 	router.HandlerFunc(http.MethodPost, "/resetmoxie", app.resetMoxie)

@@ -9,7 +9,8 @@ import (
 
 // lookup for names of functions and their functions
 var functions = template.FuncMap{
-	"Mod": models.AbilityScoreMod,
+	"Mod":       models.AbilityScoreMod,
+	"ClassName": models.ClassName,
 }
 
 // holding structure for any data we want to pass to our

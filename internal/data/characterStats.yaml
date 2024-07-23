@@ -1,28 +1,54 @@
 AbilityScores:
-    Strength: 0
-    Dexterity: 0
-    Constitution: 0
-    Intelligence: 0
-    Wisdom: 0
-    Charisma: 0
+    Strength: 15
+    Dexterity: 8
+    Constitution: 16
+    Intelligence: 10
+    Wisdom: 12
+    Charisma: 13
 hitdice:
-    hitdice: []
+    hitdice:
+        - number: 3
+          current: 3
+          sides: 8
+        - number: 1
+          current: 1
+          sides: 6
 moxie:
-    current: 0
-    max: 0
+    current: 1
+    max: 2
 combatstats:
-    hpmax: 0
-    hpcurrent: 0
+    hpmax: 37
+    hpcurrent: 37
     hptemp: 0
-    armorclass: 0
+    armorclass: 15
     deathsaves: 0
-languages: []
-toolproficiencies: []
+languages:
+    - common
+    - Yaun-ti Lizard
+    - Mystery
+toolproficiencies:
+    - improvised weapons
+    - whip
+    - crossbow
+    - tool set
+    - light armour
+    - simple weapons
 ClassTraitsSet:
     ClassTraits:
         0:
             Class: 0
             Traits:
-                - level: 0
-                  name: ""
-                  description: test
+                - level: 1
+                  name: Iron Chin
+                  description: Beginning at 1st level, while you are wearing light or no armor and not wielding a shield, your AC equals 12 + your Constitution modifier.
+                - level: 1
+                  name: Fisticuffs
+                  description: "At 1st level, your years of fighting in back alleys and taverns have given you mastery over combat styles that use unarmed strikes and pugilist weapons, which are simple melee weapons without the two-handed property, whips, and improvised weapons. You can’t use the finesse property of a weapon while using it as a pugilist weapon. \nYou gain the following benefits while you are unarmed or using only pugilist weapons and you are wearing light or no armor and not using a shield: \n» You can roll a d6 in place of the normal damage of your unarmed strike or pugilist weapon. This die changes as you gain pugilist levels, as shown in the Fisticuffs column on the Pugilist table. \n» When you use the Attack action on your turn and make only unarmed strikes, attacks with pugilist weapons, shoves, or grapples, you can use a bonus action to make one grapple or unarmed strike"
+        1:
+            Class: 1
+            Traits:
+                - level: 1
+                  name: Dragon Ancestor
+                  description: |-
+                    At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later. You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.
+                    Type: Copper: Acid

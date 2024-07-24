@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 	"runtime/debug"
+
+	"claybook.perryfranks.nerd/internal/models"
 )
 
 func (app *application) serverError(w http.ResponseWriter, err error) {
@@ -60,6 +62,26 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		ClassTraitsList: &ctl,
 		Features:        &app.characterStats.Features.Feats,
 		CombatStats:     &app.characterStats.CombatStats,
+	}
+}
+
+// Save and load. Load will panic on error
+func (app *application) saveData() {
+	app.characterStats.Save(app.savefiles["characterStats"])
+	models.SaveSpellbook(app.savefiles["spells"], app.spellbook)
+}
+
+// Save and load. Load will panic on error
+func (app *application) loadData() {
+	var err error
+	app.spellbook, err = models.LoadSpellbook(app.savefiles["spells"])
+	if err != nil {
+		panic(err)
+	}
+
+	err = app.characterStats.Load(app.savefiles["characterStats"])
+	if err != nil {
+		panic(err)
 	}
 
 }

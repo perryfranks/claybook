@@ -49,22 +49,24 @@ func main() {
 		},
 	}
 
-	app.spellbook, err = models.LoadSpellbook(app.savefiles["spells"])
-	if err != nil {
-		panic(err)
-	}
-
-	err = app.characterStats.Load(app.savefiles["characterStats"])
-	if err != nil {
-		panic(err)
-	}
+	// app.spellbook, err = models.LoadSpellbook(app.savefiles["spells"])
+	// if err != nil {
+	// 	panic(err)
+	// }
+	//
+	// err = app.characterStats.Load(app.savefiles["characterStats"])
+	// if err != nil {
+	// 	panic(err)
+	// }
+	app.loadData()
 
 	// TODO: Remove this at some point
 	app.characterStats.SetFakeData()
 
 	// NOTE: these are actually never called how I run the sever
-	defer app.characterStats.Save(app.savefiles["characterStats"])
-	defer models.SaveSpellbook(app.savefiles["spells"], app.spellbook)
+	// defer app.characterStats.Save(app.savefiles["characterStats"])
+	// defer models.SaveSpellbook(app.savefiles["spells"], app.spellbook)
+	defer app.saveData()
 
 	srv := &http.Server{
 		Addr:     *addr,

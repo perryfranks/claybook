@@ -21,3 +21,5 @@ func (cs *CombatStats) ChangeHealth(change int) {
 		cs.HpCurrent = 0
 	}
 }
+
+// updating the temp health. It would be good to sort out only allowing one source of temp hit points at a time

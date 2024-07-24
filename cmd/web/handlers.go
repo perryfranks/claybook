@@ -201,3 +201,28 @@ func (app *application) features(w http.ResponseWriter, r *http.Request) {
 	app.render(w, http.StatusOK, "features.tmpl", data)
 	return
 }
+
+func (app *application) updateHealth(w http.ResponseWriter, r *http.Request) {
+
+	// Now we need to get the data from the form. Validate that it's a number and then go from there
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	// get the damage
+	rawDamage := r.PostForm.Get("damage")
+	damage, err := strconv.Atoi(rawDamage)
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	app.characterStats.CombatStats.ChangeHealth(damage)
+
+	app.saveData()
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+
+}

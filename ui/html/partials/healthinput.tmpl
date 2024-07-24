@@ -1,0 +1,24 @@
+{{define "health-buttons"}}
+
+<div class="health-buttons">
+  <details>
+    <summary>
+      <h2 class="character-heading">Update Health</h2>
+    </summary>
+    <div class="container">
+      <form class="inline-form" action="/character/health" method="POST">
+        Damage: <input type="number" name="damage" value="0">
+        <button type="submit" class="spell-button">Hurt</button>
+      </form>
+      <form class="inline-form" action="/character/heal" method="POST">
+        Heal: <input type="number" name="heal" value="0">
+        <button type="submit" class="spell-button">Heal</button>
+      </form>
+      <form class="inline-form" action="/character/temp" method="POST">
+        Temp: <input type="number" name="temp" value="0">
+        <button type="submit" class="spell-button">Temp</button>
+      </form>
+    </div>
+  </details>
+</div>
+{{end}}

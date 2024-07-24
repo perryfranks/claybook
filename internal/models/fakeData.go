@@ -103,6 +103,11 @@ func (cs *CharacterStats) SetFakeData() {
 						Name:        "Dragon Ancestor",
 						Description: "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later. You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.\nType: Copper: Acid",
 					},
+					{
+						Level:       1,
+						Name:        "Draconic Resilience",
+						Description: "As magic flows through your body, it causes physical traits of your dragon ancestors to emerge. At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. \nAdditionally, parts of your skin are covered by a thin sheen of dragon-like scales. When you aren’t wearing armor, your AC equals 13 + your Dexterity modifier.",
+					},
 				},
 			},
 		},

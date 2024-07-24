@@ -40,7 +40,7 @@ func (cs *CharacterStats) SetFakeData() {
 		DeathSaves: 0,
 	}
 
-	languages := []string{"common", "Yaun-ti Lizard", "Mystery"}
+	languages := []string{"Common", "Yaun-ti Lizard", "Mystery"}
 	toolProficiencies := []string{"improvised weapons", "whip", "crossbow", "tool set", "light armour", "simple weapons"}
 
 	classTraitsSet := ClassTraitsSet{

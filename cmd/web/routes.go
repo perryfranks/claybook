@@ -33,7 +33,9 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodPost, "/hitdice", app.useHitDice)
 	router.HandlerFunc(http.MethodPost, "/moxie", app.useMoxie)
 	router.HandlerFunc(http.MethodPost, "/resetmoxie", app.resetMoxie)
-	router.HandlerFunc(http.MethodPost, "/character/health", app.updateHealth)
+	router.HandlerFunc(http.MethodPost, "/character/damage", app.updateHpDamage)
+	router.HandlerFunc(http.MethodPost, "/character/heal", app.updateHpHeal)
+	router.HandlerFunc(http.MethodPost, "/character/temp", app.updateHpTemp)
 
 	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
 

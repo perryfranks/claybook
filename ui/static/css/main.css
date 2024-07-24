@@ -476,3 +476,8 @@ h3 {
 	display: inline-block;
 	margin: 5px;
 }
+
+.inline-form .right {
+	text-align: right;
+	align-self: flex-end;
+}

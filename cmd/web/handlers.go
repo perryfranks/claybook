@@ -202,7 +202,7 @@ func (app *application) features(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-func (app *application) updateHealth(w http.ResponseWriter, r *http.Request) {
+func (app *application) updateHpDamage(w http.ResponseWriter, r *http.Request) {
 
 	// Now we need to get the data from the form. Validate that it's a number and then go from there
 	err := r.ParseForm()
@@ -220,6 +220,55 @@ func (app *application) updateHealth(w http.ResponseWriter, r *http.Request) {
 	}
 
 	app.characterStats.CombatStats.ChangeHealth(damage)
+
+	app.saveData()
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+
+}
+
+func (app *application) updateHpHeal(w http.ResponseWriter, r *http.Request) {
+	// Now we need to get the data from the form. Validate that it's a number and then go from there
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	// get the damage
+	rawHeal := r.PostForm.Get("heal")
+	heal, err := strconv.Atoi(rawHeal)
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	app.characterStats.CombatStats.Heal(heal)
+
+	app.saveData()
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+
+}
+
+func (app *application) updateHpTemp(w http.ResponseWriter, r *http.Request) {
+	// Now we need to get the data from the form. Validate that it's a number and then go from there
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	// get the amount
+	rawTemp := r.PostForm.Get("temp")
+	temp, err := strconv.Atoi(rawTemp)
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	fmt.Println("temp amount ", temp)
+	app.characterStats.CombatStats.Temp(temp)
 
 	app.saveData()
 

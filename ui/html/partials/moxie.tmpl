@@ -8,17 +8,20 @@
     </summary>
 
     {{with .MoxiePoints}}
-    <div class="moxie-points">
-      <form action="/moxie" method="post">
-        Moxie points: <b>{{.Current}}</b>/{{.Max}}
-        <button type="submit" name="use" value="true">Expend</button>
-      </form>
+    <div class="container">
+      <div class="inline-form moxie-points">
+        <form action="/moxie" method="post">
+          Moxie points: <b>{{.Current}}</b>/{{.Max}}
+          <button type="submit" name="use" value="true">Expend</button>
+        </form>
 
-    </div>
-    <div class="moxie-reset">
-      <form action="/resetmoxie" method="post">
-        <button type="submit" name="reset" value="true">Reset moxie</button>
-      </form>
+      </div>
+      <div class="inline-form right moxie-reset">
+        <form action="/resetmoxie" method="post">
+          <button type="submit" name="reset" value="true">Reset moxie</button>
+        </form>
+      </div>
+      <p style="margin-top: 5px;"><a href="/class/traits">Moxie actions</a></p>
     </div>
 
     {{else}}

@@ -1,0 +1,23 @@
+{{define "attacks"}}
+<div class="languages">
+  <details>
+    <summary>
+      <h2 class="character-heading">Languages & Proficiences</h2>
+    </summary>
+    <div class="container">
+      <p>Languages:
+        {{range .Languages}}
+        {{.}},
+        {{end }}
+      <p>
+      <p>
+        Proficiencies:
+        {{range .ToolProficiencies}}
+        {{.}},
+        {{end}}
+      </p>
+    </div>
+  </details>
+
+</div>
+{{end}}

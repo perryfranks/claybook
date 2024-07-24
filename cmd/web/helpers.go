@@ -53,15 +53,17 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 	sbl := app.spellbook.GetSortedSpellsByLevel()
 	ctl := app.characterStats.ClassTraitsSet.List()
 	return &templateData{
-		Spellbook:       &app.spellbook.Spells,
-		SpellSlots:      &app.spellbook.SpellSlots,
-		SpellsByLevel:   &sbl,
-		HitDiceSet:      &app.characterStats.HitDiceSet.HitDice,
-		MoxiePoints:     &app.characterStats.MoxiePoints,
-		AbilityScores:   &app.characterStats.AbilityScores,
-		ClassTraitsList: &ctl,
-		Features:        &app.characterStats.Features.Feats,
-		CombatStats:     &app.characterStats.CombatStats,
+		Spellbook:         &app.spellbook.Spells,
+		SpellSlots:        &app.spellbook.SpellSlots,
+		SpellsByLevel:     &sbl,
+		HitDiceSet:        &app.characterStats.HitDiceSet.HitDice,
+		MoxiePoints:       &app.characterStats.MoxiePoints,
+		AbilityScores:     &app.characterStats.AbilityScores,
+		ClassTraitsList:   &ctl,
+		Features:          &app.characterStats.Features.Feats,
+		CombatStats:       &app.characterStats.CombatStats,
+		Languages:         &app.characterStats.Languages,
+		ToolProficiencies: &app.characterStats.ToolProficiencies,
 	}
 }
 

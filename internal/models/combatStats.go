@@ -23,3 +23,15 @@ func (cs *CombatStats) ChangeHealth(change int) {
 }
 
 // updating the temp health. It would be good to sort out only allowing one source of temp hit points at a time
+// Heal raise current until it is HpMax
+func (cs *CombatStats) Heal(change int) {
+
+	cs.HpCurrent += change
+	if cs.HpCurrent > cs.HpMax {
+		cs.HpCurrent = cs.HpMax
+	}
+}
+
+func (cs *CombatStats) Temp(change int) {
+	cs.HpTemp += change
+}

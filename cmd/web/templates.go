@@ -15,16 +15,18 @@ var functions = template.FuncMap{
 
 // holding structure for any data we want to pass to our
 type templateData struct {
-	Spellbook       *[]models.Spell
-	Spell           *models.Spell // So far unused
-	SpellSlots      *[]models.SpellSlot
-	SpellsByLevel   *[]models.SpellByLevel
-	HitDiceSet      *[]models.HitDice
-	MoxiePoints     *models.MoxiePoints
-	AbilityScores   *models.AbilityScores
-	ClassTraitsList *[]models.ClassTraits
-	Features        *[]models.Trait
-	CombatStats     *models.CombatStats
+	Spellbook         *[]models.Spell
+	Spell             *models.Spell // So far unused
+	SpellSlots        *[]models.SpellSlot
+	SpellsByLevel     *[]models.SpellByLevel
+	HitDiceSet        *[]models.HitDice
+	MoxiePoints       *models.MoxiePoints
+	AbilityScores     *models.AbilityScores
+	ClassTraitsList   *[]models.ClassTraits
+	Features          *[]models.Trait
+	CombatStats       *models.CombatStats
+	Languages         *[]string
+	ToolProficiencies *[]string
 }
 
 func (t *templateData) String() string {

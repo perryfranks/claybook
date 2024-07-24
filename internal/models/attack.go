@@ -1,10 +1,9 @@
 package models
 
 type Attack struct {
-	Name  string
-	Melee bool
-	Roll  Roll
+	Name  string `yaml:"name"`
+	Melee bool   `yaml:"isMelee"`
+	Dice  string `yaml:"dice"`
 }
 
-type Roll struct {
-}
+// TODO: need a way to calculate the damage bonus

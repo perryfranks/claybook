@@ -27,6 +27,8 @@ type templateData struct {
 	CombatStats       *models.CombatStats
 	Languages         *[]string
 	ToolProficiencies *[]string
+	PugilistDie       *int
+	Attacks           *[]models.Attack
 }
 
 func (t *templateData) String() string {

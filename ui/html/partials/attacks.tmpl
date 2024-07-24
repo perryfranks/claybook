@@ -1,21 +1,20 @@
 {{define "attacks"}}
-<div class="languages">
+<div class="attacks">
   <details>
     <summary>
-      <h2 class="character-heading">Languages & Proficiences</h2>
+      <h2 class="character-heading">Attacks</h2>
     </summary>
     <div class="container">
-      <p>Languages:
-        {{range .Languages}}
-        {{.}},
-        {{end }}
-      <p>
-      <p>
-        Proficiencies:
-        {{range .ToolProficiencies}}
-        {{.}},
-        {{end}}
-      </p>
+      {{range .Attacks}}
+      <div>
+        <ul>
+          <!-- need to change this to in line or maybe a headless table -->
+          <li>{{.Name}}</li>
+          <li>{{.Melee}}</li>
+          <li>{{.Dice}}</li>
+        </ul>
+      </div>
+      {{end}}
     </div>
   </details>
 

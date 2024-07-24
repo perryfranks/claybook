@@ -138,6 +138,26 @@ func (cs *CharacterStats) SetFakeData() {
 		},
 	}
 
+	pugilistDie := 6
+
+	attacks := []Attack{
+		{
+			Name:  "Fists",
+			Melee: true,
+			Dice:  "d6",
+		},
+		{
+			Name:  "Hand Axe",
+			Melee: true,
+			Dice:  "d6",
+		},
+		{
+			Name:  "Captains Sword",
+			Melee: true,
+			Dice:  "idk",
+		},
+	}
+
 	// Now lets set everthing
 	cs.AbilityScores = abilityscores
 	cs.HitDiceSet = hitDiceSet
@@ -147,5 +167,7 @@ func (cs *CharacterStats) SetFakeData() {
 	cs.ToolProficiencies = toolProficiencies
 	cs.ClassTraitsSet = classTraitsSet
 	cs.Features = features
+	cs.PugilistDie = pugilistDie
+	cs.Attacks = attacks
 
 }

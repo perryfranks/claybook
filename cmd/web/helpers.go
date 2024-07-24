@@ -64,6 +64,8 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		CombatStats:       &app.characterStats.CombatStats,
 		Languages:         &app.characterStats.Languages,
 		ToolProficiencies: &app.characterStats.ToolProficiencies,
+		PugilistDie:       &app.characterStats.PugilistDie,
+		Attacks:           &app.characterStats.Attacks,
 	}
 }
 

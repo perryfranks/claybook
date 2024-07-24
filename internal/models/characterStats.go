@@ -16,6 +16,7 @@ type CharacterStats struct {
 	ClassTraitsSet    ClassTraitsSet `yaml:"classTraitsSet"`
 	Features          Features       `yaml:"features"`
 	Attacks           []Attack       `yaml:"Attacks"`
+	PugilistDie       int            `yaml:"PugilistDie"`
 }
 
 func (cs *CharacterStats) Save(path string) error {

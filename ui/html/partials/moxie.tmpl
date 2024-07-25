@@ -7,11 +7,11 @@
       <h2 class="character-heading">Moxie Points</h2>
     </summary>
 
-    {{with .MoxiePoints}}
-    <div class="container">
+    <div id="moxieDiv" class="container">
+
       <div class="inline-form moxie-points">
-        <form action="/moxie" method="post">
-          Moxie points: <b>{{.Current}}</b>/{{.Max}}
+        <form hx-post="/moxie" hx-target="#moxieDiv">
+          Moxie points: <b>{{.MoxiePoints.Current}}</b>/{{.MoxiePoints.Max}}
           <button type="submit" name="use" value="true">Expend</button>
         </form>
 
@@ -24,15 +24,14 @@
       <p style="margin-top: 5px;"><a href="/class/traits">Moxie actions</a></p>
     </div>
 
-    {{else}}
-    <p>No moxie points</p>
-    {{end}}
-
     <p style="margin-top: 5px;">Pugilist Die: d{{.PugilistDie}}</p>
 
 
   </details>
 
 </div>
+{{end}}
+
+{{block "moxie-inner"}}
 
 {{end}}

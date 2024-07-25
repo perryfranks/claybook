@@ -113,8 +113,10 @@ func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
 
 func (app *application) useMoxie(w http.ResponseWriter, r *http.Request) {
 
+	fmt.Println("In moxie")
 	err := r.ParseForm()
 	if err != nil {
+		fmt.Println("error section")
 		app.clientError(w, http.StatusBadRequest)
 		return
 	}
@@ -126,7 +128,11 @@ func (app *application) useMoxie(w http.ResponseWriter, r *http.Request) {
 
 	app.characterStats.Save(app.savefiles["characterStats"])
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	// http.Redirect(w, r, "/", http.StatusSeeOther)
+
+	fmt.Println("Returning")
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "moxie.tmpl", data)
 }
 
 func (app *application) resetMoxie(w http.ResponseWriter, r *http.Request) {

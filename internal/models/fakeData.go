@@ -139,6 +139,7 @@ func (cs *CharacterStats) SetFakeData() {
 	}
 
 	pugilistDie := 6
+	prof := 2
 
 	attacks := []Attack{
 		{
@@ -158,6 +159,17 @@ func (cs *CharacterStats) SetFakeData() {
 		},
 	}
 
+	inv := Inventory{
+		Items: []Item{
+			{
+				Name:        "Snake Skull",
+				Cost:        0,
+				Weight:      "nil",
+				Description: "Snake skull",
+			},
+		},
+	}
+
 	// Now lets set everthing
 	cs.AbilityScores = abilityscores
 	cs.HitDiceSet = hitDiceSet
@@ -169,5 +181,7 @@ func (cs *CharacterStats) SetFakeData() {
 	cs.Features = features
 	cs.PugilistDie = pugilistDie
 	cs.Attacks = attacks
+	cs.ProficiencyBonus = prof
+	cs.Inventory = inv
 
 }

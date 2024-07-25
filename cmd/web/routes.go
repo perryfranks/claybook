@@ -24,6 +24,9 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/edit", app.edit)
 	router.HandlerFunc(http.MethodGet, "/class/traits", app.classTraits)
 	router.HandlerFunc(http.MethodGet, "/features", app.features)
+	router.HandlerFunc(http.MethodGet, "/inventory", app.inventory)
+	router.HandlerFunc(http.MethodGet, "/misc", app.misc)
+	router.HandlerFunc(http.MethodPost, "/inventory/add", app.inventoryAdd)
 
 	// I don't think these should be get requests since they change server state.
 	// we can fix this with htmx

@@ -275,3 +275,47 @@ func (app *application) updateHpTemp(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 
 }
+
+func (app *application) misc(w http.ResponseWriter, r *http.Request) {
+
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "misc.tmpl", data)
+}
+
+func (app *application) inventory(w http.ResponseWriter, r *http.Request) {
+
+	data := app.newTemplateData(r)
+	fmt.Println("inventory called")
+	app.render(w, http.StatusOK, "inventory.tmpl", data)
+}
+
+func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
+
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	name := r.PostForm.Get("name")
+	cost, err := strconv.Atoi(r.PostForm.Get("cost"))
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+	weight := r.PostForm.Get("weight")
+	description := r.PostForm.Get("description")
+
+	i := models.Item{
+		Name:        name,
+		Cost:        cost,
+		Weight:      weight,
+		Description: description,
+	}
+
+	app.characterStats.Inventory.Add(i)
+	app.saveData()
+
+	http.Redirect(w, r, "/inventory", http.StatusSeeOther)
+
+}

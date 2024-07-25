@@ -15,8 +15,16 @@ type CharacterStats struct {
 	ToolProficiencies []string       `yaml:"toolproficiencies"`
 	ClassTraitsSet    ClassTraitsSet `yaml:"classTraitsSet"`
 	Features          Features       `yaml:"features"`
-	Attacks           []Attack       `yaml:"Attacks"`
-	PugilistDie       int            `yaml:"PugilistDie"`
+	Attacks           []Attack       `yaml:"attacks"`
+	PugilistDie       int            `yaml:"pugilistdie"`
+	ProficiencyBonus  int            `yaml:"proficienybonus"`
+	Inventory         Inventory      `yaml:"Inventory"`
+}
+
+func AttackBonus(strMod int, prof int) int {
+	// AbilityMod + Proficiency
+	return (strMod + prof)
+
 }
 
 func (cs *CharacterStats) Save(path string) error {

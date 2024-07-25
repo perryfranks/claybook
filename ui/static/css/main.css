@@ -308,7 +308,7 @@ th {
 th:last-child,
 td:last-child {
 	text-align: right;
-	color: #6A6C6F;
+	/* color: #6A6C6F; */
 }
 
 tr {

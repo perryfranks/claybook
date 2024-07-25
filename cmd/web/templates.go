@@ -9,8 +9,9 @@ import (
 
 // lookup for names of functions and their functions
 var functions = template.FuncMap{
-	"Mod":       models.AbilityScoreMod,
-	"ClassName": models.ClassName,
+	"Mod":         models.AbilityScoreMod,
+	"ClassName":   models.ClassName,
+	"AttackBonus": models.AttackBonus,
 }
 
 // holding structure for any data we want to pass to our
@@ -29,6 +30,9 @@ type templateData struct {
 	ToolProficiencies *[]string
 	PugilistDie       *int
 	Attacks           *[]models.Attack
+	ProficiencyBonus  *int
+	Inventory         *models.Inventory
+	MiscItems         *[]models.Item
 }
 
 func (t *templateData) String() string {

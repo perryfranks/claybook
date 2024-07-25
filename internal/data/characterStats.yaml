@@ -14,7 +14,7 @@ hitdice:
           current: 1
           sides: 6
 moxie:
-    current: 1
+    current: 2
     max: 2
 combatstats:
     hpmax: 37
@@ -23,7 +23,7 @@ combatstats:
     armorclass: 15
     deathsaves: 0
 languages:
-    - common
+    - Common
     - Yaun-ti Lizard
     - Mystery
 toolproficiencies:
@@ -90,3 +90,30 @@ features:
         - level: 0
           name: Exploration
           description: For your master's sake, you must go far and wide in search of something. You are proficient in the Survival skill and you cannot be lost by nonmagical means.
+attacks:
+    - name: Fists
+      isMelee: true
+      dice: d6
+    - name: Hand Axe
+      isMelee: true
+      dice: d6
+    - name: Captains Sword
+      isMelee: true
+      dice: idk
+pugilistdie: 6
+proficienybonus: 2
+Inventory:
+    Items:
+        - Name: Snake Skull
+          Cost: 0
+          Weight: nil
+          Description: Snake skull
+        - Name: Backpack
+          Cost: 10
+          Weight: "1"
+          Description: A leather backpack. Pretty fashionable.
+        - Name: Captains sword
+          Cost: 25
+          Weight: "1"
+          Description: Fancy sword
+    MaxWeight: 0

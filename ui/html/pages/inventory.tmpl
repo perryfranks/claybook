@@ -1,0 +1,44 @@
+{{define "title"}} Inventory {{end}}
+
+
+{{define "main"}}
+
+<div class="inventory-container">
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Weight</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      {{range .Inventory.Items}}
+      <tr>
+        <td>{{.Name}}</td>
+        <td>{{.Cost}}</td>
+        <td>{{.Weight}}</td>
+        <td>{{.Description}}</td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+  <p>Add to Inventory:</p>
+  <!-- The cool thing to do would be to add the form validation here -->
+  <form action="/inventory/add" method="post">
+    <table>
+      <tbody>
+        <tr>
+          <td><input type="text" value="Name" name="name" /> </td>
+          <td><input type="number" value="Cost" name="cost" /></td>
+          <td><input type="text" value="Weight" name="weight" /></td>
+          <td><input type="text" value="Description" name="description" />
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit">Add</button>
+  </form>
+
+
+</div>
+
+{{end}}

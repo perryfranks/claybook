@@ -5,16 +5,45 @@
       <h2 class="character-heading">Attacks</h2>
     </summary>
     <div class="container">
-      {{range .Attacks}}
-      <div>
-        <ul>
-          <!-- need to change this to in line or maybe a headless table -->
-          <li>{{.Name}}</li>
-          <li>{{.Melee}}</li>
-          <li>{{.Dice}}</li>
-        </ul>
-      </div>
-      {{end}}
+      <table>
+        <thead>
+          <th>Weapon</th>
+          <th>Attack Bonus</th>
+          <th>Damage Roll</th>
+        </thead>
+        <tbody>
+          {{$DamageBonus := Mod .AbilityScores.Str}}
+          {{$AttackBonus := AttackBonus (Mod .AbilityScores.Str) .ProficiencyBonus}}
+          {{range .Attacks}}
+          <tr>
+            <td>
+              {{.Name}}
+            </td>
+            <td>
+              {{if .Melee}}
+              {{$AttackBonus}}
+              {{else}}
+              Not Melee
+              {{end}}
+            </td>
+            <td>
+              {{.Dice}} + {{$DamageBonus}}
+            </td>
+          </tr>
+          {{end}}
+          <tr>
+            <td>
+              Pugilist Weapons (Pugilist Die)
+            </td>
+            <td>
+              {{$AttackBonus}}
+            </td>
+            <td>
+              d{{.PugilistDie}} + {{$DamageBonus}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </details>
 

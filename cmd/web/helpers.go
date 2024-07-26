@@ -48,6 +48,35 @@ func (app *application) render(w http.ResponseWriter, status int, page string, d
 
 }
 
+// try and execute the block level template not the base
+// it would be possible to get the name of the template and then take that as the template name
+// but that would be an invisible constraint
+func (app *application) renderBlock(w http.ResponseWriter, status int, page string, templateName string, data *templateData) {
+
+	// get template from cache if it exists
+	// ts, ok := app.templateCache[page]
+	ts, ok := app.partialsCache[page]
+	if !ok {
+		err := fmt.Errorf("The template %s does not exist", page)
+		app.serverError(w, err)
+		return
+	}
+
+	buf := new(bytes.Buffer)
+
+	err := ts.ExecuteTemplate(buf, templateName, data)
+	// err := ts.Execute(buf, data)
+	if err != nil {
+		app.serverError(w, err)
+		return
+	}
+
+	w.WriteHeader(status)
+	fmt.Println(buf)
+	buf.WriteTo(w)
+
+}
+
 // Create a new data struct for any common data that we don't mind passing to all templates
 func (app *application) newTemplateData(r *http.Request) *templateData {
 	sbl := app.spellbook.GetSortedSpellsByLevel()

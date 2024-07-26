@@ -132,7 +132,9 @@ func (app *application) useMoxie(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("Returning")
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "moxie.tmpl", data)
+	// app.render(w, http.StatusOK, "moxie.tmpl", data)
+	// since we are rending a block we want to use the block renderer
+	app.renderBlock(w, http.StatusOK, "moxie.tmpl", "moxie", data)
 }
 
 func (app *application) resetMoxie(w http.ResponseWriter, r *http.Request) {

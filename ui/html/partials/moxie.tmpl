@@ -1,6 +1,6 @@
 {{define "moxie"}}
 
-<div class="moxie">
+<div id="moxie-container" class="moxie">
 
   <details open=true>
     <summary>
@@ -10,7 +10,7 @@
     <div id="moxieDiv" class="container">
 
       <div class="inline-form moxie-points">
-        <form hx-post="/moxie" hx-target="#moxieDiv">
+        <form hx-post="/moxie" hx-target="#moxie-container" hx-swap="innerHTML">
           Moxie points: <b>{{.MoxiePoints.Current}}</b>/{{.MoxiePoints.Max}}
           <button type="submit" name="use" value="true">Expend</button>
         </form>
@@ -30,8 +30,4 @@
   </details>
 
 </div>
-{{end}}
-
-{{block "moxie-inner"}}
-
 {{end}}

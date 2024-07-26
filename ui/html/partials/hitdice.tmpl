@@ -1,6 +1,6 @@
 {{ define "hit-dice" }}
 
-<div class="hit-dice">
+<div id="hit-container" class="hit-dice">
 
   <details>
     <summary>
@@ -11,13 +11,14 @@
     <div class="hit-dice">
       {{ range .HitDiceSet }}
 
-      <form action="/hitdice" method="post">
+      <form hx-post="/hitdice" hx-target="#hit-container" hx-swap="innerHTML">
         D{{ .Sides }}: <b>{{.Current}}</b>/{{.Number}}
         <button type="submit" name="hit-dice" value="{{.Sides}}">Expend</button>
       </form>
 
       {{end}}
     </div>
+    <!-- TODO: FIX THIS FORM AS WELL -->
     <div class="hit-dice-reset">
       <form action="/hitdice" method="post">
         <button type="submit" name="reset" value="true">Reset Hit Dice</button>

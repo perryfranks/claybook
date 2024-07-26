@@ -107,7 +107,9 @@ func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
 	// save the character stats
 	app.characterStats.Save(app.savefiles["characterStats"])
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	data := app.newTemplateData(r)
+	// http.Redirect(w, r, "/", http.StatusSeeOther)
+	app.renderBlock(w, http.StatusOK, "hitdice.tmpl", "hit-dice", data)
 
 }
 

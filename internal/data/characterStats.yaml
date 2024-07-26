@@ -14,7 +14,7 @@ hitdice:
           current: 1
           sides: 6
 moxie:
-    current: 0
+    current: 2
     max: 2
 combatstats:
     hpmax: 37

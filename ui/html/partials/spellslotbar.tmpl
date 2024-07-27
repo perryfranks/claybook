@@ -1,13 +1,13 @@
 {{define "spellslotcard"}}
 
-<div class="container-sidebar">
+<div id="spellslot-container" class="container-sidebar">
 	<div class="sidebar">
 		<p><b>Spell Slots (current/max):</b></p>
 
 		{{ if .SpellSlots }}
 		{{range .SpellSlots}}
 
-		<form action="/spells" method="POST">
+		<form hx-post="/spells/slots" hx-target="#spellslot-container" hx-swap="outerHTML">
 			<p>{{.Level}}: {{.Remaining}}/{{.Max}}</p>
 			<input type="hidden" name="slotlevel" value="{{.Level}}">
 			<button type="submit" class="spell-button">Cast Spell</button>
@@ -16,7 +16,7 @@
 		{{end}}
 		<br>
 		<hr style="width:50%;text-align:left;margin-left:0">
-		<form action="/spells" method="POST">
+		<form hx-post="/spells/slots" hx-target="#spellslot-container" hx-swap="outerHTML">
 			<button type="submit" class="spell-button">Reset Spells</button>
 			<input type="hidden" name="reset" value="true">
 		</form>

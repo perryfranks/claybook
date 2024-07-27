@@ -65,12 +65,9 @@ func (app *application) updateSpellSlot(w http.ResponseWriter, r *http.Request) 
 	// update the spell slot
 	// get the corresponding spell slot
 
-	// save
-	// app.spellbook.("internal/data/spells.yaml")
-	models.SaveSpellbook("internal/data/spells.yaml", app.spellbook)
-	// http.Redirect(w, r, "/spells", http.StatusSeeOther)
+	app.saveData()
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "spellbook.tmpl", data)
+	app.renderBlock(w, http.StatusOK, "spellslotbar.tmpl", "spellslotcard", data)
 
 }
 
@@ -326,6 +323,8 @@ func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
 	app.characterStats.Inventory.Add(i)
 	app.saveData()
 
-	http.Redirect(w, r, "/inventory", http.StatusSeeOther)
+	data := app.newTemplateData(r)
+	// http.Redirect(w, r, "/inventory", http.StatusSeeOther)
+	app.renderBlock(w, http.StatusOK, "inventorylist.tmpl", "inventory-list", data)
 
 }

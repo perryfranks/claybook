@@ -1,4 +1,35 @@
 {{ define "hit-dice" }}
+{{if .HitDiceSet}}
+<div id="hitdice-inner-container">
+  {{ range .HitDiceSet }}
+
+  <div class="inline-form moxie-points">
+    <form hx-post="/hitdice" hx-target="#hitdice-inner-container">
+      D{{ .Sides }}: <b>{{.Current}}</b>/{{.Number}}
+      <button type="submit" name="hit-dice" value="{{.Sides}}">Expend</button>
+    </form>
+  </div>
+
+  {{end}}
+  <div class="inline-form moxie-points">
+    <div class="hit-dice-reset">
+      <form hx-post="/hitdice" hx-target="#hitdice-inner-container">
+        <button type="submit" name="reset" value="true">Reset Hit Dice</button>
+      </form>
+    </div>
+  </div>
+
+  {{else}}
+  <p> No hit dice </p>
+  {{end}}
+
+</div>
+
+{{ end }}
+
+
+
+{{ define "hit-dice-outer" }}
 
 <div id="hit-container" class="hit-dice">
 
@@ -7,31 +38,11 @@
       <h2 class="character-heading">Hit Dice</h2>
     </summary>
 
-    {{if .HitDiceSet}}
-    <div class="hit-dice">
-      {{ range .HitDiceSet }}
-
-      <form hx-post="/hitdice" hx-target="#hit-container" hx-swap="innerHTML">
-        D{{ .Sides }}: <b>{{.Current}}</b>/{{.Number}}
-        <button type="submit" name="hit-dice" value="{{.Sides}}">Expend</button>
-      </form>
-
-      {{end}}
+    <div class="container">
+      {{template "hit-dice" .}}
     </div>
-    <!-- TODO: FIX THIS FORM AS WELL -->
-    <div class="hit-dice-reset">
-      <form action="/hitdice" method="post">
-        <button type="submit" name="reset" value="true">Reset Hit Dice</button>
-      </form>
-    </div>
-
-    {{else}}
-    <p> No hit dice </p>
-    {{end}}
-
 
   </details>
 
 </div>
-
 {{ end }}

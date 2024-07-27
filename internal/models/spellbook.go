@@ -107,6 +107,15 @@ func LoadSpellbook(file string) (Spellbook, error) {
 	return spellbook, nil
 }
 
+func LoadFromSpellString(data string) (Spellbook, error) {
+	sb := Spellbook{}
+	if err := yaml.Unmarshal([]byte(data), &sb); err != nil {
+		return Spellbook{}, err
+	}
+	return sb, nil
+
+}
+
 // Save from file
 func SaveSpellbook(file string, sb Spellbook) error {
 	data, err := yaml.Marshal(&sb)

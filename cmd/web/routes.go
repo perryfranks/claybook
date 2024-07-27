@@ -43,6 +43,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodPost, "/character/temp", app.updateHpTemp)
 
 	router.HandlerFunc(http.MethodGet, "/dump", app.dumpCharacter)
+	router.HandlerFunc(http.MethodPost, "/updateCharacter", app.updateCharacterData)
+	router.HandlerFunc(http.MethodPost, "/updateSpells", app.updateSpellData)
 
 	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
 

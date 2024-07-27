@@ -125,6 +125,10 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		Inventory:         &app.characterStats.Inventory,
 		MiscItems:         &app.miscItems,
 		DataDump:          &dump,
+		FightClubFeatures: &app.characterStats.FightClubFeatures,
+		FightClubName:     &app.characterStats.FightClubName,
+		CharacterDump:     &dump[0],
+		SpellsDump:        &dump[1],
 	}
 }
 

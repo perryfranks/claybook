@@ -34,6 +34,10 @@ type templateData struct {
 	Inventory         *models.Inventory
 	MiscItems         *[]models.Item
 	DataDump          *[]string
+	FightClubFeatures *[]models.Trait
+	FightClubName     *string
+	CharacterDump     *string
+	SpellsDump        *string
 }
 
 func (t *templateData) String() string {

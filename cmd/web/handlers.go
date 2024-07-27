@@ -72,7 +72,8 @@ func (app *application) updateSpellSlot(w http.ResponseWriter, r *http.Request) 
 }
 
 func (app *application) edit(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("edit page"))
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "edit.tmpl", data)
 }
 
 func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
@@ -195,6 +196,12 @@ func (app *application) load(w http.ResponseWriter, r *http.Request) {
 func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 	app.render(w, http.StatusOK, "classTraits.tmpl", data)
+	return
+}
+
+func (app *application) fightClub(w http.ResponseWriter, r *http.Request) {
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "fightclub.tmpl", data)
 	return
 }
 
@@ -329,5 +336,54 @@ func (app *application) dumpCharacter(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
 	app.render(w, http.StatusOK, "dataDump.tmpl", data)
+
+}
+
+func (app *application) updateCharacterData(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	rawYaml := r.PostForm.Get("character")
+	cs := models.CharacterStats{}
+	err = cs.LoadFromString(rawYaml)
+	if err != nil {
+		// We will need to have a better error here
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	app.characterStats = cs
+
+	// if we can marshal this into a struct it is valid yaml still. (I think)
+	app.saveData()
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "updateCharacter.tmpl", "update-character", data)
+
+}
+
+func (app *application) updateSpellData(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	rawYaml := r.PostForm.Get("spells")
+	// err = sb.LoadFromString(rawYaml)
+	sb, err := models.LoadFromSpellString(rawYaml)
+	if err != nil {
+		// We will need to have a better error here
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	app.spellbook = sb
+
+	app.saveData()
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "updateSpells.tmpl", "update-spells", data)
 
 }

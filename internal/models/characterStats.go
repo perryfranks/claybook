@@ -57,3 +57,10 @@ func (cs *CharacterStats) Load(path string) error {
 
 	return nil
 }
+
+func (cs *CharacterStats) LoadFromString(data string) error {
+	if err := yaml.Unmarshal([]byte(data), &cs); err != nil {
+		return err
+	}
+	return nil
+}

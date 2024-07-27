@@ -1,0 +1,20 @@
+{{define "title"}} Edit Character {{end}}
+
+
+{{define "main"}}
+<!-- NOTE: It would be great to add a save flash and validation to this -->
+<div>
+
+  <div class="character-editor">
+
+    {{template "update-character" .}}
+
+  </div>
+  <div class="spell-editor">
+    {{template "update-spells" .}}
+  </div>
+
+
+</div>
+
+{{end}}

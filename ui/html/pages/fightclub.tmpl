@@ -3,9 +3,12 @@
 
 {{define "main"}}
 
+<div class="fight-club-name">
+  <h2>{{.FightClubName}}</h2>
+</div>
 
 <div class="card-list-outer">
-  {{range .FightClub}}
+  {{range .FightClubFeatures}}
   <div>
     <div class="spellblock">
       <div class="card-body">

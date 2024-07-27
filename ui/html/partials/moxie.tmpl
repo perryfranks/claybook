@@ -17,7 +17,7 @@
 
       </div>
       <div class="inline-form right moxie-reset">
-        <form action="/resetmoxie" method="post">
+        <form hx-post="/resetmoxie" hx-target="#moxie-container" hx-swap="innerHTML">
           <button type="submit" name="reset" value="true">Reset moxie</button>
         </form>
       </div>

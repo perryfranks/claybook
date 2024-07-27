@@ -33,6 +33,7 @@ type templateData struct {
 	ProficiencyBonus  *int
 	Inventory         *models.Inventory
 	MiscItems         *[]models.Item
+	DataDump          *[]string
 }
 
 func (t *templateData) String() string {

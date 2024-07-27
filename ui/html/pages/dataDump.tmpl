@@ -1,0 +1,15 @@
+{{define "title"}} Data {{end}}
+
+{{define "main"}}
+
+<div class="data-dump">
+
+  {{range .DataDump}}
+
+  <pre>{{.}}</pre>
+
+  {{end}}
+
+</div>
+
+{{end}}

@@ -1,0 +1,24 @@
+{{define "title"}} Fight Club {{end}}
+
+
+{{define "main"}}
+
+
+<div class="card-list-outer">
+  {{range .FightClub}}
+  <div>
+    <div class="spellblock">
+      <div class="card-body">
+        <b>
+          <span class="left">Level: {{.Level}} </span>
+          <span class="center">{{.Name}} </span>
+        </b>
+        <p class="card-text">{{.Description}}</p><br>
+      </div>
+    </div>
+    </details>
+    {{end}}
+  </div>
+</div>
+
+{{end}}

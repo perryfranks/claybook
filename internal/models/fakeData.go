@@ -170,6 +170,26 @@ func (cs *CharacterStats) SetFakeData() {
 		},
 	}
 
+	fightClubFeatures := []Trait{
+		{
+			Level:       3,
+			Name:        "Terrible Talisman",
+			Description: "Starting when you choose this fight club at 3rd level, you possess an object that reminds you of the burning hate that returned you to the land of the living. This object, known as your talisman, grants you the following supernatural powers: \n» You suffer from exhaustion as if you had one less level than you do. You do not die from exhaustion until you gain a seventh level. At 11th level, you suffer from exhaustion as if you had two less levels than you do, at which point you do not die from exhaustion until you gain an eighth level. » You have advantage on death saving throws. \n» If a spell, such as raise dead, has the sole effect of restoring you to life, the caster doesn’t need material components to cast the spell on you. \nYour talisman can be any nonmagical object of your choice. If your talisman is ever destroyed, you lose all the supernatural powers it grants you. You can replace your talisman with an 8 hour ritual, during which time you call forth a shadowy replica of the talisman from the land of the dead.",
+		},
+		{
+			Level:       3,
+			Name:        "No Escape",
+			Description: "Also starting at 3rd level, you can use an action to cast the cause fear XGE spell. Constitution is your spellcasting ability for this spell. \nWhile a creature is frightened of you as a result of this spell, if it moves more than half of its movement speed on a turn, it must succeed on a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus) or fall prone and have its speed reduced to 0 until the start of its next turn. Additionally, creatures who are frightened of you as a result of this spell cannot hide from you and do not gain any of the benefits of invisibility against you. \n Once you cast the spell with this feature, you can’t do so again until you finish a short or long rest.",
+		},
+		{
+			Level:       0,
+			Name:        "Description",
+			Description: "Most pugilists suffer hardships, but few can claim they’ve passed through the gates of death and returned. You died in an incident of terrible violence, perhaps an accident, perhaps not. You felt suffering, silence, darkness...then a cold-burning hatred in your chest. When you woke, you were changed. An object near you or on your person when you died granted you supernatural powers. You might not be able to die, but you’re pretty sure your enemies can.",
+		},
+	}
+
+	fightClubName := "Relentless Revenant"
+
 	// Now lets set everthing
 	cs.AbilityScores = abilityscores
 	cs.HitDiceSet = hitDiceSet
@@ -183,5 +203,7 @@ func (cs *CharacterStats) SetFakeData() {
 	cs.Attacks = attacks
 	cs.ProficiencyBonus = prof
 	cs.Inventory = inv
+	cs.FightClubFeatures = fightClubFeatures
+	cs.FightClubName = fightClubName
 
 }

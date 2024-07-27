@@ -108,8 +108,4 @@ Inventory:
           Cost: 0
           Weight: nil
           Description: Snake skull
-        - Name: Back
-          Cost: 5
-          Weight: "1"
-          Description: my fav backpack
     MaxWeight: 0

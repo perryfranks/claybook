@@ -24,6 +24,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/edit", app.edit)
 	router.HandlerFunc(http.MethodGet, "/class/traits", app.classTraits)
 	router.HandlerFunc(http.MethodGet, "/features", app.features)
+	router.HandlerFunc(http.MethodGet, "/fightclub", app.fightClub)
+
 	router.HandlerFunc(http.MethodGet, "/inventory", app.inventory)
 	router.HandlerFunc(http.MethodGet, "/misc", app.misc)
 	router.HandlerFunc(http.MethodPost, "/inventory/add", app.inventoryAdd)
@@ -39,6 +41,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodPost, "/character/damage", app.updateHpDamage)
 	router.HandlerFunc(http.MethodPost, "/character/heal", app.updateHpHeal)
 	router.HandlerFunc(http.MethodPost, "/character/temp", app.updateHpTemp)
+
+	router.HandlerFunc(http.MethodGet, "/dump", app.dumpCharacter)
 
 	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
 

@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"net/http"
+	"os"
 	"runtime/debug"
 
 	"claybook.perryfranks.nerd/internal/models"
@@ -44,6 +45,7 @@ func (app *application) render(w http.ResponseWriter, status int, page string, d
 	}
 
 	w.WriteHeader(status)
+	fmt.Println(buf)
 	buf.WriteTo(w)
 
 }
@@ -77,10 +79,34 @@ func (app *application) renderBlock(w http.ResponseWriter, status int, page stri
 
 }
 
+func (app *application) newDataDump() []string {
+	// load character yaml into a string
+	charStats, err := os.ReadFile(app.savefiles["characterStats"])
+	if err != nil {
+		panic("Issue reading charactersStats file.")
+	}
+
+	// load spells into a string
+	spells, err := os.ReadFile(app.savefiles["spells"])
+	if err != nil {
+		panic("Issue reading spells file.")
+	}
+
+	data := []string{
+		string(charStats),
+		string(spells),
+	}
+
+	return data
+
+}
+
 // Create a new data struct for any common data that we don't mind passing to all templates
 func (app *application) newTemplateData(r *http.Request) *templateData {
 	sbl := app.spellbook.GetSortedSpellsByLevel()
 	ctl := app.characterStats.ClassTraitsSet.List()
+	dump := app.newDataDump()
+
 	return &templateData{
 		Spellbook:         &app.spellbook.Spells,
 		SpellSlots:        &app.spellbook.SpellSlots,
@@ -98,6 +124,7 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		ProficiencyBonus:  &app.characterStats.ProficiencyBonus,
 		Inventory:         &app.characterStats.Inventory,
 		MiscItems:         &app.miscItems,
+		DataDump:          &dump,
 	}
 }
 

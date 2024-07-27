@@ -15,6 +15,8 @@ type CharacterStats struct {
 	ToolProficiencies []string       `yaml:"toolproficiencies"`
 	ClassTraitsSet    ClassTraitsSet `yaml:"classTraitsSet"`
 	Features          Features       `yaml:"features"`
+	FightClubFeatures []Trait        `yaml:"fightClubFeatures"`
+	FightClubName     string         `yaml:"fightClubName"`
 	Attacks           []Attack       `yaml:"attacks"`
 	PugilistDie       int            `yaml:"pugilistdie"`
 	ProficiencyBonus  int            `yaml:"proficienybonus"`
@@ -24,7 +26,6 @@ type CharacterStats struct {
 func AttackBonus(strMod int, prof int) int {
 	// AbilityMod + Proficiency
 	return (strMod + prof)
-
 }
 
 func (cs *CharacterStats) Save(path string) error {

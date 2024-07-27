@@ -112,10 +112,8 @@ func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
 
 func (app *application) useMoxie(w http.ResponseWriter, r *http.Request) {
 
-	fmt.Println("In moxie")
 	err := r.ParseForm()
 	if err != nil {
-		fmt.Println("error section")
 		app.clientError(w, http.StatusBadRequest)
 		return
 	}
@@ -127,12 +125,7 @@ func (app *application) useMoxie(w http.ResponseWriter, r *http.Request) {
 
 	app.characterStats.Save(app.savefiles["characterStats"])
 
-	// http.Redirect(w, r, "/", http.StatusSeeOther)
-
-	fmt.Println("Returning")
 	data := app.newTemplateData(r)
-	// app.render(w, http.StatusOK, "moxie.tmpl", data)
-	// since we are rending a block we want to use the block renderer
 	app.renderBlock(w, http.StatusOK, "moxie.tmpl", "moxie", data)
 }
 
@@ -151,7 +144,9 @@ func (app *application) resetMoxie(w http.ResponseWriter, r *http.Request) {
 
 	app.characterStats.Save(app.savefiles["characterStats"])
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "moxie.tmpl", "moxie", data)
+
 }
 
 func (app *application) changeHealth(w http.ResponseWriter, r *http.Request) {
@@ -326,5 +321,13 @@ func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 	// http.Redirect(w, r, "/inventory", http.StatusSeeOther)
 	app.renderBlock(w, http.StatusOK, "inventorylist.tmpl", "inventory-list", data)
+
+}
+
+// dump all character data nothing fancy
+func (app *application) dumpCharacter(w http.ResponseWriter, r *http.Request) {
+
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "dataDump.tmpl", data)
 
 }

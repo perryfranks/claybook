@@ -18,7 +18,7 @@ moxie:
     max: 2
 combatstats:
     hpmax: 37
-    hpcurrent: 37
+    hpcurrent: 13
     hptemp: 0
     armorclass: 15
     deathsaves: 0

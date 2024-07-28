@@ -7,7 +7,8 @@
 	margin: 0;
 	padding: 0;
 	font-size: 18px;
-	font-family: "Ubuntu Mono", monospace;
+	font-family: "Montserrat", sans-serif;
+	/* font-family: "Ubuntu Mono", monospace; */
 }
 
 html,
@@ -119,20 +120,11 @@ h2 {
 	top: -9px;
 }
 
-a {
-	color: #62CB31;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #4EB722;
-	text-decoration: underline;
-}
 
 textarea,
 input:not([type="submit"]) {
 	font-size: 18px;
-	font-family: "Ubuntu Mono", monospace;
+	/* font-family: "Ubuntu Mono", monospace; */
 }
 
 header {

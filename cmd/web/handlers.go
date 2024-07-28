@@ -17,7 +17,7 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	// }
 
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "character.tmpl", data)
+	app.render(w, http.StatusOK, "character.html", data)
 }
 
 func (app *application) spells(w http.ResponseWriter, r *http.Request) {
@@ -27,7 +27,7 @@ func (app *application) spells(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(data.String())
 
-	app.render(w, http.StatusOK, "spellbook.tmpl", data)
+	app.render(w, http.StatusOK, "spellbook.html", data)
 
 }
 
@@ -67,13 +67,13 @@ func (app *application) updateSpellSlot(w http.ResponseWriter, r *http.Request) 
 
 	app.saveData()
 	data := app.newTemplateData(r)
-	app.renderBlock(w, http.StatusOK, "spellslotbar.tmpl", "spellslotcard", data)
+	app.renderBlock(w, http.StatusOK, "spellslotbar.html", "spellslotcard", data)
 
 }
 
 func (app *application) edit(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "edit.tmpl", data)
+	app.render(w, http.StatusOK, "edit.html", data)
 }
 
 func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
@@ -107,7 +107,7 @@ func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
 	// http.Redirect(w, r, "/", http.StatusSeeOther)
-	app.renderBlock(w, http.StatusOK, "hitdice.tmpl", "hit-dice", data)
+	app.renderBlock(w, http.StatusOK, "hitdice.html", "hit-dice", data)
 
 }
 
@@ -127,7 +127,7 @@ func (app *application) useMoxie(w http.ResponseWriter, r *http.Request) {
 	app.characterStats.Save(app.savefiles["characterStats"])
 
 	data := app.newTemplateData(r)
-	app.renderBlock(w, http.StatusOK, "moxie.tmpl", "moxie", data)
+	app.renderBlock(w, http.StatusOK, "moxie.html", "moxie", data)
 }
 
 func (app *application) resetMoxie(w http.ResponseWriter, r *http.Request) {
@@ -146,7 +146,7 @@ func (app *application) resetMoxie(w http.ResponseWriter, r *http.Request) {
 	app.characterStats.Save(app.savefiles["characterStats"])
 
 	data := app.newTemplateData(r)
-	app.renderBlock(w, http.StatusOK, "moxie.tmpl", "moxie", data)
+	app.renderBlock(w, http.StatusOK, "moxie.html", "moxie", data)
 
 }
 
@@ -195,19 +195,19 @@ func (app *application) load(w http.ResponseWriter, r *http.Request) {
 
 func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "classTraits.tmpl", data)
+	app.render(w, http.StatusOK, "classTraits.html", data)
 	return
 }
 
 func (app *application) fightClub(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "fightclub.tmpl", data)
+	app.render(w, http.StatusOK, "fightclub.html", data)
 	return
 }
 
 func (app *application) features(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "features.tmpl", data)
+	app.render(w, http.StatusOK, "features.html", data)
 	return
 }
 
@@ -232,7 +232,8 @@ func (app *application) updateHpDamage(w http.ResponseWriter, r *http.Request) {
 
 	app.saveData()
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "healthinput.html", "health-buttons-inner", data)
 
 }
 
@@ -288,14 +289,14 @@ func (app *application) updateHpTemp(w http.ResponseWriter, r *http.Request) {
 func (app *application) misc(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "misc.tmpl", data)
+	app.render(w, http.StatusOK, "misc.html", data)
 }
 
 func (app *application) inventory(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
 	fmt.Println("inventory called")
-	app.render(w, http.StatusOK, "inventory.tmpl", data)
+	app.render(w, http.StatusOK, "inventory.html", data)
 }
 
 func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
@@ -327,7 +328,7 @@ func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
 	// http.Redirect(w, r, "/inventory", http.StatusSeeOther)
-	app.renderBlock(w, http.StatusOK, "inventorylist.tmpl", "inventory-list", data)
+	app.renderBlock(w, http.StatusOK, "inventorylist.html", "inventory-list", data)
 
 }
 
@@ -335,7 +336,7 @@ func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
 func (app *application) dumpCharacter(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "dataDump.tmpl", data)
+	app.render(w, http.StatusOK, "dataDump.html", data)
 
 }
 
@@ -360,7 +361,7 @@ func (app *application) updateCharacterData(w http.ResponseWriter, r *http.Reque
 	// if we can marshal this into a struct it is valid yaml still. (I think)
 	app.saveData()
 	data := app.newTemplateData(r)
-	app.renderBlock(w, http.StatusOK, "updateCharacter.tmpl", "update-character", data)
+	app.renderBlock(w, http.StatusOK, "updateCharacter.html", "update-character", data)
 
 }
 
@@ -384,6 +385,6 @@ func (app *application) updateSpellData(w http.ResponseWriter, r *http.Request) 
 
 	app.saveData()
 	data := app.newTemplateData(r)
-	app.renderBlock(w, http.StatusOK, "updateSpells.tmpl", "update-spells", data)
+	app.renderBlock(w, http.StatusOK, "updateSpells.html", "update-spells", data)
 
 }

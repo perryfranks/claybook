@@ -6,20 +6,20 @@
   <div class='spells'>
     {{if .SpellsByLevel}}
     {{range .SpellsByLevel}}
-    <details open=true>
-      <summary class="level-heading">
-        <div class="heading-container">
-          <h3 class="level-heading">Level: {{.Level}}</h3>
+    <div>
+      <details open=true>
+        <summary class="level-heading">
+          <h3 class="p-1 mr-36 mb-1 hover:text-tMaroon active:text-tOrange">Level:
+            {{.Level}}
+          </h3>
+        </summary>
+        {{range .Spells}}
+        <div class="pb-1 last:pb-5">
+          {{template "spellcard" .}}
         </div>
-      </summary>
-      {{range .Spells}}
-      <div class="spellblock">
-        {{template "spellcard" .}}
-      </div>
-      {{end}}
-      </table>
-    </details>
-    <hr class="spelllevel-seperator">
+        {{end}}
+      </details>
+    </div>
     {{end}}
     {{else}}
     <p>No spells found</p>

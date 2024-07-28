@@ -7,13 +7,19 @@
 	<title>{{template "title" .}} - Claybook</title>
 	<!-- 
 	<link rel='stylesheet' href='/static/css/main.css'>
+	Tailwind output file 
 	-->
 	<link rel='stylesheet' href='/static/css/output.css'>
 	<link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
 
 	<!-- Also link to some fonts hosted by Google -->
-	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+	<!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'> -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
 	<script src="/static/js/htmx.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -23,11 +29,27 @@
 		<h1><a class="NOP" href='/'>Clayson End</a></h1>
 	</header>
 	{{template "nav" . }}
-	<h1 class="text-3xl font-bold underline"> TAILWIND </h1>
 	<main>
 		{{template "main" .}}
 	</main>
-	<footer>Powered by <a href='https://golang.org/'>Go</a></footer>
+	<footer class="flex justify-between">
+		<span>
+			Created by <a class="hover:text-tMaroon active:text-tOrange text-tDarkSage font-semibold"
+				href="https://github.com/perryfranks">Perry Franks</a>
+		</span>
+		<span>
+			Powered by <a class="hover:text-tMaroon active:text-tOrange text-tDarkSage font-semibold"
+				href='https://golang.org/'>Go</a>,
+			<a class="hover:text-tMaroon active:text-tOrange text-tDarkSage font-semibold"
+				href="https://htmx.org">HTMX</a>,
+			and
+			<a class="hover:text-tMaroon active:text-tOrange text-tDarkSage font-semibold"
+				href="https://tailwindcss.com">tailwindcss</a>
+		</span>
+		<span><a class="hover:text-tMaroon active:text-tOrange text-tDarkSage font-semibold"
+				href="https://github.com/perryfranks/claybook">GitHub</a></span>
+
+	</footer>
 </body>
 
 </html>

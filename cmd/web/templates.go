@@ -70,30 +70,31 @@ func (t *templateData) String() string {
 
 }
 
+// tmpl -> html
 func newTemplateData() (map[string]*template.Template, map[string]*template.Template, error) {
 
 	cache := map[string]*template.Template{}
 	partialsCache := map[string]*template.Template{}
 
-	pages, err := filepath.Glob("./ui/html/pages/*.tmpl")
+	pages, err := filepath.Glob("./ui/html/pages/*.html")
 	if err != nil {
 		return nil, nil, err
 	}
 
 	for _, page := range pages {
-		// extract the file name (like "home.tmpl") from the full path
+		// extract the file name (like "home.html") from the full path
 		name := filepath.Base(page)
 
 		// Register the template functions as well.
-		ts, err := template.New(name).Funcs(functions).ParseFiles("./ui/html/base.tmpl")
+		ts, err := template.New(name).Funcs(functions).ParseFiles("./ui/html/base.html")
 
-		// ts, err := template.ParseFiles("./ui/html/base.tmpl", page)
+		// ts, err := template.ParseFiles("./ui/html/base.html", page)
 		if err != nil {
 			return nil, nil, err
 		}
 
 		// grab all the partials
-		ts, err = ts.ParseGlob("./ui/html/partials/*.tmpl")
+		ts, err = ts.ParseGlob("./ui/html/partials/*.html")
 		if err != nil {
 			return nil, nil, err
 		}
@@ -108,7 +109,7 @@ func newTemplateData() (map[string]*template.Template, map[string]*template.Temp
 	}
 
 	// With the inclusion of htmx we now want to be able to have the partials inclueded as well. Not just the compiled top-level pages
-	partials, err := filepath.Glob("./ui/html/partials/*.tmpl")
+	partials, err := filepath.Glob("./ui/html/partials/*.html")
 	if err != nil {
 		return nil, nil, err
 	}

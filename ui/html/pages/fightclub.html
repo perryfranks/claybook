@@ -3,24 +3,25 @@
 
 {{define "main"}}
 
-<div class="fight-club-name">
-  <h2>{{.FightClubName}}</h2>
-</div>
-
-<div class="card-list-outer">
-  {{range .FightClubFeatures}}
-  <div>
-    <div class="spellblock">
-      <div class="card-body">
-        <b>
-          <span class="left">Level: {{.Level}} </span>
-          <span class="center">{{.Name}} </span>
-        </b>
-        <p class="card-text">{{.Description}}</p><br>
+<div>
+  <div class="flex justify-center bg-tTeal mx-24 py-2">
+    <h1 class="text-white">{{.FightClubName}}</h1>
+  </div>
+  <div class="card-list-outer">
+    {{range .FightClubFeatures}}
+    <div>
+      <div class="spellblock">
+        <div class="card-body">
+          <b>
+            <span class="left">Level: {{.Level}} </span>
+            <span class="center">{{.Name}} </span>
+          </b>
+          <p class="card-text">{{.Description}}</p><br>
+        </div>
       </div>
+      </details>
+      {{end}}
     </div>
-    </details>
-    {{end}}
   </div>
 </div>
 

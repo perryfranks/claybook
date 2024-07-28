@@ -7,8 +7,8 @@ tmp_dir = "tmp"
   bin = "./tmp/main"
   cmd = "go build -o ./tmp/main ./cmd/web/"
   delay = 0
-  exclude_dir = ["assets", "tmp", "vendor", "testdata"]
-  exclude_file = []
+  exclude_dir = ["assets", "tmp", "vendor", "testdata", "node_modules"]
+  exclude_file = ["package_lock.json", "package.json"]
   exclude_regex = ["_test.go"]
   exclude_unchanged = false
   follow_symlink = false
@@ -47,5 +47,5 @@ tmp_dir = "tmp"
   proxy_port = 0
 
 [screen]
-  clear_on_rebuild = false
+  clear_on_rebuild = true
   keep_scroll = true

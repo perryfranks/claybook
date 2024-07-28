@@ -1,24 +1,36 @@
 {{define "health-buttons"}}
 
-<div class="health-buttons">
+<div id="health-buttons" class="health-buttons">
   <details>
     <summary>
       <h2 class="character-heading">Update Health</h2>
     </summary>
-    <div class="container">
-      <form class="inline-form" action="/character/damage" method="POST">
-        Damage: <input type="number" name="damage" value="0">
-        <button type="submit" class="spell-button">Hurt</button>
-      </form>
-      <form class="inline-form" action="/character/heal" method="POST">
-        Heal: <input type="number" name="heal" value="0">
-        <button type="submit" class="spell-button">Heal</button>
-      </form>
-      <form class="inline-form" action="/character/temp" method="POST">
-        Temp: <input type="number" name="temp" value="0">
-        <button type="submit" class="spell-button">Temp</button>
-      </form>
+    <div id="health-buttons-inner">
+      {{template "health-buttons-inner" .}}
+
     </div>
   </details>
+</div>
+{{end}}
+
+<!-- This works but the health table goes out of date. Need to figure out the fix. Poll? I don't think oob-swap does what I think it does -->
+<!-- I think we could trigger the table to send a request if we setup an event to be emitted -->
+{{define "health-buttons-inner"}}
+<div class="flex justify-center">
+  <form class="inline-form" hx-post="/character/damage" hx-target="#health-buttons-inner" hx-swap="outerHTML">
+    Damage: <input type="number" name="damage" value="0">
+    <button class="bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
+      type="submit" class="spell-button">Hurt</button>
+  </form>
+  <form class="inline-form" hx-post="/character/heal" hx-target="#health-buttons-inner" hx-swap="outerHTML">
+    Heal: <input type="number" name="heal" value="0">
+    <button class="bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
+      type="submit" class="spell-button">Heal</button>
+  </form>
+  <form class="inline-form" hx-post="/character/temp" hx-target="#health-buttons-inner" hx-swap="outerHTML">
+    Temp: <input type="number" name="temp" value="0">
+    <button class="bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
+      type="submit" class="spell-button">Temp</button>
+  </form>
 </div>
 {{end}}

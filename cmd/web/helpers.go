@@ -45,7 +45,7 @@ func (app *application) render(w http.ResponseWriter, status int, page string, d
 	}
 
 	w.WriteHeader(status)
-	fmt.Println(buf)
+	// fmt.Println(buf)
 	buf.WriteTo(w)
 
 }
@@ -74,7 +74,7 @@ func (app *application) renderBlock(w http.ResponseWriter, status int, page stri
 	}
 
 	w.WriteHeader(status)
-	fmt.Println(buf)
+	// fmt.Println(buf)
 	buf.WriteTo(w)
 
 }

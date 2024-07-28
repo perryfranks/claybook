@@ -1,15 +1,19 @@
 {{define "spellcard"}}
 <div class="spellcard">
   <details>
-    <summary class="card-header">
-      <b>
-        <span class="left">Level: {{.Level}}</span>
-        <span class="center">{{.Name}}</span>
-        <span class="right"><button class="spell-button">Cast</button></span>
-        <span class="right"><button class="spell-button">Copy</button></span>
-      </b>
+    <summary class="group flex items-center justify-between bg-tTeal text-white">
+      <span class="ml-2 justify-start">Level: {{.Level}}</span>
+      <span class="justify-center group-hover:text-tOrange">{{.Name}}</span>
+      <div class="justify-end">
+        <div class="mx-5 flex items-center justify-between pb-2">
+          <span class="mx-5 "><button
+              class="bg-tMaroon text-white hover:bg-tBurntUmber active:bg-tBeige active:ring active:ring-tOrange">Cast</button></span>
+          <span class="justify-end"><button
+              class="bg-tMaroon text-white hover:bg-tBurntUmber active:bg-tBeige active:ring active:ring-tOrange">Copy</button></span>
+        </div>
+
     </summary>
-    <div class="card-body">
+    <div class="py-1">
       <p class="card-text">{{.Description}}</p><br>
       {{if .HigherLevel}}
       <p class="card-text"><b>At higher levels:</b><br>{{.HigherLevel}}</p><br>

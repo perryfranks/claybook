@@ -4,27 +4,35 @@
 
   <details open=true>
     <summary>
-      <h2 class="character-heading">Moxie Points</h2>
+      <h2 class=" text-center hover:text-tMaroon active:text-tOrange">Moxie Points</h2>
     </summary>
 
     <div id="moxieDiv" class="container">
 
-      <div class="inline-form moxie-points">
-        <form hx-post="/moxie" hx-target="#moxie-container" hx-swap="innerHTML">
+      <div class="inline-flex justify-between space-x-4">
+        <div class="mt-4">
           Moxie points: <b>{{.MoxiePoints.Current}}</b>/{{.MoxiePoints.Max}}
-          <button type="submit" name="use" value="true">Expend</button>
+        </div>
+        <form hx-post="/moxie" hx-target="#moxie-container" hx-swap="innerHTML">
+          <button class="bg-tTeal text-white hover:bg-tDarkSage active:bg-tSage active:ring active:ring-tMaroon"
+            type="submit" name="use" value="true">Expend</button>
         </form>
 
+        <div>
+          <form hx-post="/resetmoxie" hx-target="#moxie-container" hx-swap="innerHTML">
+            <button class="bg-tTeal text-white hover:bg-tDarkSage active:bg-tSage active:ring active:ring-tMaroon"
+              type="submit" name="reset" value="true">Reset moxie</button>
+          </form>
+        </div>
+
+        <!-- Just padding inbetween the active and passive points of the moxie bar -->
+        <div class="min-w-40"></div>
+        <p class="mt-4">Pugilist Die: d{{.PugilistDie}}</p>
+        <p class="mt-4"><a class="text-tSage hover:text-tMaroon active:text-tOrange" href="/class/traits">Moxie
+            actions</a></p>
       </div>
-      <div class="inline-form right moxie-reset">
-        <form hx-post="/resetmoxie" hx-target="#moxie-container" hx-swap="innerHTML">
-          <button type="submit" name="reset" value="true">Reset moxie</button>
-        </form>
-      </div>
-      <p style="margin-top: 5px;"><a href="/class/traits">Moxie actions</a></p>
     </div>
 
-    <p style="margin-top: 5px;">Pugilist Die: d{{.PugilistDie}}</p>
 
 
   </details>

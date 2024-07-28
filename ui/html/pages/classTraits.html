@@ -6,10 +6,10 @@
 
 <div class="card-list-outer">
   {{range .ClassTraitsList}}
-  <div>
+  <div class="px-10 py-1">
     <details open=true>
-      <summary class="card-header">
-        <div class="heading-container">
+      <summary class="group bg-tTeal">
+        <div class="text-white group-hover:text-tOrange">
           <h3 class="level-heading">{{ClassName .ClassName}}</h3>
         </div>
       </summary>
@@ -25,8 +25,8 @@
       </div>
       {{end}}
     </details>
-    {{end}}
   </div>
+  {{end}}
 </div>
 
 {{end}}

@@ -30,6 +30,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/misc", app.misc)
 	router.HandlerFunc(http.MethodPost, "/inventory/add", app.inventoryAdd)
 
+	router.HandlerFunc(http.MethodGet, "/combatstats/health", app.combatStatsHealth)
+
 	// I don't think these should be get requests since they change server state.
 	// we can fix this with htmx
 	router.HandlerFunc(http.MethodGet, "/save", app.save)

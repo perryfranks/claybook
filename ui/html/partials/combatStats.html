@@ -7,29 +7,7 @@
     </summary>
 
     <!-- <table hx-get="/" hx-trigger="target:#health-buttons-inner"> -->
-    <table>
-      <thead>
-        <tr>
-          <th>Max HP</th>
-          <th>Current HP</th>
-          <th>Temp HP</th>
-          <th>AC</th>
-          <th>Death Saves</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{with .CombatStats }}
-
-        <tr>
-          <td>{{.HpMax}}</td>
-          <td>{{.HpCurrent}}</td>
-          <td>{{.HpTemp}}</td>
-          <td>{{.ArmorClass}}</td>
-          <td>{{.DeathSaves}}</td>
-        </tr>
-        {{end}}
-      </tbody>
-    </table>
+    {{template "combat-stats-table" . }}
     <div class="health change">
 
       {{template "health-buttons" . }}

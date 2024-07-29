@@ -233,8 +233,16 @@ func (app *application) updateHpDamage(w http.ResponseWriter, r *http.Request) {
 	app.saveData()
 
 	data := app.newTemplateData(r)
+	w.Header().Set("HX-Trigger", "healthUpdate")
 	app.renderBlock(w, http.StatusOK, "healthinput.html", "health-buttons-inner", data)
 
+}
+
+// We just need to re-render the inner table here I think
+func (app *application) combatStatsHealth(w http.ResponseWriter, r *http.Request) {
+
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "combatStatsPartials.html", "combat-stats-table", data)
 }
 
 func (app *application) updateHpHeal(w http.ResponseWriter, r *http.Request) {
@@ -254,10 +262,11 @@ func (app *application) updateHpHeal(w http.ResponseWriter, r *http.Request) {
 	}
 
 	app.characterStats.CombatStats.Heal(heal)
-
 	app.saveData()
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	data := app.newTemplateData(r)
+	w.Header().Add("HX-Trigger", "healthUpdate")
+	app.renderBlock(w, http.StatusOK, "healthinput.html", "health-buttons-inner", data)
 
 }
 
@@ -282,7 +291,9 @@ func (app *application) updateHpTemp(w http.ResponseWriter, r *http.Request) {
 
 	app.saveData()
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	data := app.newTemplateData(r)
+	w.Header().Add("HX-Trigger", "healthUpdate")
+	app.renderBlock(w, http.StatusOK, "healthinput.html", "health-buttons-inner", data)
 
 }
 

@@ -1,7 +1,9 @@
 {{define "nav"}}
 <nav class="bg-white">
   <div>
-    <a class="text-tSage font-bold hover:text-tMaroon active:text-tOrange" href='/'>Character Sheet</a>
+    <a class="text-tSage font-bold hover:text-tMaroon active:text-tOrange" hx-get='/inner/characterSheet'
+      hx-target="#main-div">Character
+      Sheet</a>
     <a class="text-tSage font-bold hover:text-tMaroon active:text-tOrange" href='/spells'>Spell List</a>
     <a class="text-tSage font-bold hover:text-tMaroon active:text-tOrange" href='/class/traits'>Class Traits</a>
     <a class="text-tSage font-bold hover:text-tMaroon active:text-tOrange" href='/fightclub'>Fight Club</a>

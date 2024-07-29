@@ -10,14 +10,14 @@ import (
 
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
-	// Not needed with httprouter
-	// if r.URL.Path != "/" {
-	// 	app.notFound(w)
-	// 	return
-	// }
-
 	data := app.newTemplateData(r)
 	app.render(w, http.StatusOK, "character.html", data)
+}
+
+func (app *application) characterSheet(w http.ResponseWriter, r *http.Request) {
+
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "zcharacterSheetInner.html", "character-sheet", data)
 }
 
 func (app *application) spells(w http.ResponseWriter, r *http.Request) {

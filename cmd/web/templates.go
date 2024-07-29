@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"path/filepath"
 
@@ -87,8 +88,6 @@ func newTemplateData() (map[string]*template.Template, map[string]*template.Temp
 
 		// Register the template functions as well.
 		ts, err := template.New(name).Funcs(functions).ParseFiles("./ui/html/base.html")
-
-		// ts, err := template.ParseFiles("./ui/html/base.html", page)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -103,7 +102,7 @@ func newTemplateData() (map[string]*template.Template, map[string]*template.Temp
 		if err != nil {
 			return nil, nil, err
 		}
-
+		fmt.Println("Page: ", name, "cached")
 		cache[name] = ts
 
 	}
@@ -120,9 +119,10 @@ func newTemplateData() (map[string]*template.Template, map[string]*template.Temp
 
 		ts, err := template.New(name).Funcs(functions).ParseFiles(partial)
 		if err != nil {
-			return nil, nil, nil
+			return nil, nil, err
 		}
 
+		fmt.Println("Partial: ", name, "cached")
 		partialsCache[name] = ts
 	}
 

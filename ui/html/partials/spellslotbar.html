@@ -3,14 +3,14 @@
 <div id="spellslot-container">
 	<div class="m-4">
 		<span>
-			<h1 class="text-tSage underline font-bold">Spell Slots (current/max):</h1>
+			<h1 class="font-bold text-tSage underline">Spell Slots (current/max):</h1>
 		</span>
 
 		{{ if .SpellSlots }}
 		{{range .SpellSlots}}
 
 		<form hx-post="/spells/slots" hx-target="#spellslot-container" hx-swap="outerHTML">
-			<div class="flex justify-between items-center ">
+			<div class="flex items-center justify-between ">
 				<input type="hidden" name="slotlevel" value="{{.Level}}">
 				<span class="pt-2">Level {{.Level}}: {{.Remaining}}/{{.Max}}</span>
 				<span class="">

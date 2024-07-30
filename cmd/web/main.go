@@ -39,9 +39,7 @@ func main() {
 		errorLog.Fatal(err)
 	}
 
-	dv := DisplayVars{
-		NavBarColors: map[string]string{},
-	}
+	dv := DisplayVars{}
 
 	app := &application{
 		errorLog:      errorLog,

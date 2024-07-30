@@ -8,39 +8,35 @@
 
 
 {{define "nav-inner"}}
-<!-- <a class="font-bold {{NavBarColor " character-sheet" .DisplayVars.NavBarColors}} hover:text-tMaroon active:text-tOrange" -->
 <a class="font-bold {{isCurrentPageColor " character-sheet" .DisplayVars}} hover:text-tMaroon active:text-tOrange"
   hx-get="/inner/characterSheet" hx-target="#main">Character
   Sheet</a>
-<!-- <a class="font-bold hover:text-tMaroon active:text-tOrange" hx-get="/inner/characterSheet" -->
-<!--   hx-target="#main">Character -->
-<!--   Sheet</a> -->
-<a class="font-bold {{isCurrentPageColor " spell" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
+<a class="font-bold {{isCurrentPageColor " spells" .DisplayVars}} hover:text-tMaroon active:text-tOrange"
   hx-get='/spells' hx-target="#main">Spell
   List</a>
-<a class="font-bold {{isCurrentPageColor " class" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
+<a class="font-bold {{isCurrentPageColor " class" .DisplayVars}} hover:text-tMaroon active:text-tOrange"
   hx-get='/class/traits' hx-target="#main">Class
   Traits</a>
-<a class="font-bold {{isCurrentPageColor " fight-club" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
+<a class="font-bold {{isCurrentPageColor " fight-club" .DisplayVars}} hover:text-tMaroon active:text-tOrange"
   hx-get='/fightclub' hx-target="#main">Fight
   Club</a>
-<a class="font-bold {{isCurrentPageColor " features" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
+<a class="font-bold {{isCurrentPageColor " features" .DisplayVars}} hover:text-tMaroon active:text-tOrange"
   hx-get='/features' hx-target="#main">Misc.
   Features</a>
-<a class="font-bold {{isCurrentPageColor " inventory" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
+<a class="font-bold {{isCurrentPageColor " inventory" .DisplayVars}} hover:text-tMaroon active:text-tOrange"
   hx-get='/inventory' hx-target="#main">Inventory</a>
-<a class="font-bold {{isCurrentPageColor " misc" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
-  hx-get='/misc' hx-target="#main">Misc.
+<a class="font-bold {{isCurrentPageColor " misc" .DisplayVars}} hover:text-tMaroon active:text-tOrange" hx-get='/misc'
+  hx-target="#main">Misc.
   Items</a>
 <div class="right-items">
-  <a class="font-bold {{isCurrentPageColor " edit" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
-    hx-get='/edit' hx-target="#main">Edit
+  <a class="font-bold {{isCurrentPageColor " edit" .DisplayVars}} hover:text-tMaroon active:text-tOrange" hx-get='/edit'
+    hx-target="#main">Edit
     character</a>
-  <a class="font-bold {{isCurrentPageColor " save" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
-    hx-get='/save' hx-target="#main">Save</a>
-  <a class="font-bold {{isCurrentPageColor " load" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
-    hx-get='/load' hx-target="#main">Load</a>
-  <a class="font-bold {{isCurrentPageColor " dump" .DisplayVars}} text-tSage hover:text-tMaroon active:text-tOrange"
-    hx-get='/dump' hx-target="#main">Dump</a>
+  <a class="font-bold {{isCurrentPageColor " save" .DisplayVars}} hover:text-tMaroon active:text-tOrange" hx-get='/save'
+    hx-target="#main">Save</a>
+  <a class="font-bold {{isCurrentPageColor " load" .DisplayVars}} hover:text-tMaroon active:text-tOrange" hx-get='/load'
+    hx-target="#main">Load</a>
+  <a class="font-bold {{isCurrentPageColor " dump" .DisplayVars}} hover:text-tMaroon active:text-tOrange" hx-get='/dump'
+    hx-target="#main">Dump</a>
 </div>
 {{end}}

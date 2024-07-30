@@ -13,7 +13,6 @@ var functions = template.FuncMap{
 	"Mod":                models.AbilityScoreMod,
 	"ClassName":          models.ClassName,
 	"AttackBonus":        models.AttackBonus,
-	"NavBarColor":        getNavBarColor,
 	"isCurrentPageColor": isCurrentPageColor,
 }
 

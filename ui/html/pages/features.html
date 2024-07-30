@@ -7,13 +7,13 @@
 <div class="card-list-outer">
   {{range .Features}}
   <div>
-    <div class="spellblock">
-      <div class="card-body">
-        <b>
-          <span class="left">Level: {{.Level}} </span>
-          <span class="center">{{.Name}} </span>
-        </b>
-        <p class="card-text">{{.Description}}</p><br>
+    <div>
+      <div class="m-5 ml-10  border-b-2 border-tDarkSage border-solid">
+        <div class="flex justify-center items-center relative">
+          <div class="text-left font-bold absolute left-4">Level: {{.Level}}</div>
+          <div class="text-center font-bold"> {{.Name}} </div>
+        </div>
+        <p class="pl-4">{{.Description}}</p><br>
       </div>
     </div>
     </details>

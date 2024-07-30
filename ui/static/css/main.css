@@ -434,16 +434,6 @@ ul {
 	/* make this span the whole container */
 }
 
-/* .level-heading h3 { */
-h3 {
-	margin: 0;
-	/* Remove default margin */
-	padding: 0;
-	/* Remove default padding */
-	font-size: 1.5em;
-	/* Adjust font size if needed */
-}
-
 .character-heading {
 	text-align: center;
 	width: 100%;

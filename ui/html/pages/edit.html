@@ -3,15 +3,24 @@
 
 {{define "main"}}
 <!-- NOTE: It would be great to add a save flash and validation to this -->
-<div>
+<div class="flex-col justify-center text-center">
 
   <div class="character-editor">
-
-    {{template "update-character" .}}
+    <details>
+      <summary class="mx-4 mt-4  bg-tTeal text-white hover:text-tOrange ">
+        Edit Character
+      </summary>
+      {{template "update-character" .}}
+    </details>
 
   </div>
   <div class="spell-editor">
-    {{template "update-spells" .}}
+    <details>
+      <summary class="mx-4 mt-4 bg-tTeal text-white hover:text-tOrange ">
+        Edit Spells
+      </summary>
+      {{template "update-spells" .}}
+    </details>
   </div>
 
 

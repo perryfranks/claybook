@@ -10,17 +10,17 @@
     <details open=true>
       <summary class="group bg-tTeal">
         <div class="text-white group-hover:text-tOrange">
-          <h3 class="level-heading">{{ClassName .ClassName}}</h3>
+          <h3 class="text-xl text-center">{{ClassName .ClassName}}</h3>
         </div>
       </summary>
       {{range .Traits}}
-      <div class="spellblock">
-        <div class="card-body">
-          <b>
-            <span class="left">Level: {{.Level}} </span>
-            <span class="center">{{.Name}} </span>
-          </b>
-          <p class="card-text">{{.Description}}</p><br>
+      <div>
+        <div class="m-5 ml-10  border-b-2 border-tDarkSage border-solid">
+          <div class="flex justify-center items-center relative">
+            <div class="text-left font-bold absolute left-4">Level: {{.Level}}</div>
+            <div class="text-center font-bold"> {{.Name}} </div>
+          </div>
+          <p class="pl-4">{{.Description}}</p><br>
         </div>
       </div>
       {{end}}

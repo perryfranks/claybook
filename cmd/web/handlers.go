@@ -10,19 +10,17 @@ import (
 
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
-	data := app.newTemplateData(r)
-	data.DisplayVars.NavBarColors["character-sheet"] = "text-tOrange"
-	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
 	app.DisplayVars.CurrentPage = "character-sheet"
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	data := app.newTemplateData(r)
 	app.render(w, http.StatusOK, "character.html", data)
 }
 
 func (app *application) characterSheet(w http.ResponseWriter, r *http.Request) {
 
-	data := app.newTemplateData(r)
-	data.DisplayVars.NavBarColors["character-sheet"] = "text-tOrange"
-	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
 	app.DisplayVars.CurrentPage = "character-sheet"
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	data := app.newTemplateData(r)
 	app.renderBlock(w, http.StatusOK, "character.html", "main", data)
 }
 
@@ -35,14 +33,13 @@ func (app *application) nav(w http.ResponseWriter, r *http.Request) {
 func (app *application) spells(w http.ResponseWriter, r *http.Request) {
 
 	app.spellbook.SortSpellSlots()
-	data := app.newTemplateData(r)
 
-	fmt.Println(data.String())
 	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
 	app.DisplayVars.CurrentPage = "spells"
 
 	// app.render(w, http.StatusOK, "spellbook.html", data)
 
+	data := app.newTemplateData(r)
 	app.renderBlock(w, http.StatusOK, "spellbook.html", "main", data)
 }
 
@@ -87,6 +84,8 @@ func (app *application) updateSpellSlot(w http.ResponseWriter, r *http.Request) 
 }
 
 func (app *application) edit(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "edit"
 	data := app.newTemplateData(r)
 	// app.render(w, http.StatusOK, "edit.html", data)
 
@@ -216,6 +215,8 @@ func (app *application) load(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "class"
 	data := app.newTemplateData(r)
 	// app.render(w, http.StatusOK, "classTraits.html", data)
 	app.renderBlock(w, http.StatusOK, "classTraits.html", "main", data)
@@ -223,6 +224,8 @@ func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) fightClub(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "fight-club"
 	data := app.newTemplateData(r)
 	// app.render(w, http.StatusOK, "fightclub.html", data)
 	app.renderBlock(w, http.StatusOK, "fightclub.html", "main", data)
@@ -230,6 +233,8 @@ func (app *application) fightClub(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) features(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "features"
 	data := app.newTemplateData(r)
 	// app.render(w, http.StatusOK, "features.html", data)
 	app.renderBlock(w, http.StatusOK, "features.html", "main", data)
@@ -325,12 +330,16 @@ func (app *application) updateHpTemp(w http.ResponseWriter, r *http.Request) {
 
 func (app *application) misc(w http.ResponseWriter, r *http.Request) {
 
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "misc"
 	data := app.newTemplateData(r)
 	// app.render(w, http.StatusOK, "misc.html", data)
 	app.renderBlock(w, http.StatusOK, "misc.html", "main", data)
 }
 
 func (app *application) inventory(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "inventory"
 
 	data := app.newTemplateData(r)
 	// app.render(w, http.StatusOK, "inventory.html", data)
@@ -373,6 +382,8 @@ func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
 // dump all character data nothing fancy
 func (app *application) dumpCharacter(w http.ResponseWriter, r *http.Request) {
 
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "dump"
 	data := app.newTemplateData(r)
 	// app.render(w, http.StatusOK, "dataDump.html", data)
 	app.renderBlock(w, http.StatusOK, "dataDump.html", "main", data)

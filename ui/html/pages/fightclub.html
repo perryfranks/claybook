@@ -4,19 +4,19 @@
 {{define "main"}}
 
 <div>
-  <div class="flex justify-center bg-tTeal mx-24 py-2">
-    <h1 class="text-white">{{.FightClubName}}</h1>
+  <div class="mx-24 flex justify-center bg-tTeal py-2">
+    <h3 class="text-l text-white ">{{.FightClubName}}</h1>
   </div>
   <div class="card-list-outer">
     {{range .FightClubFeatures}}
     <div>
-      <div class="spellblock">
-        <div class="card-body">
-          <b>
-            <span class="left">Level: {{.Level}} </span>
-            <span class="center">{{.Name}} </span>
-          </b>
-          <p class="card-text">{{.Description}}</p><br>
+      <div>
+        <div class="m-5 ml-10  border-b-2 border-tDarkSage border-solid">
+          <div class="flex justify-center items-center relative">
+            <div class="text-left font-bold absolute left-4">Level: {{.Level}}</div>
+            <div class="text-center font-bold"> {{.Name}} </div>
+          </div>
+          <p class="pl-4">{{.Description}}</p><br>
         </div>
       </div>
       </details>

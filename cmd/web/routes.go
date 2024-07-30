@@ -19,6 +19,7 @@ func (app *application) routes() http.Handler {
 	router.Handler(http.MethodGet, "/static/*filepath", http.StripPrefix("/static", fileServer))
 
 	router.HandlerFunc(http.MethodGet, "/inner/characterSheet", app.characterSheet)
+	router.HandlerFunc(http.MethodGet, "/nav", app.nav)
 	router.HandlerFunc(http.MethodGet, "/", app.home)
 	router.HandlerFunc(http.MethodGet, "/spells", app.spells)
 	router.HandlerFunc(http.MethodPost, "/spells/slots", app.updateSpellSlot)

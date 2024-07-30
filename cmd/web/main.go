@@ -21,6 +21,7 @@ type application struct {
 	spellbook      models.Spellbook
 	miscItems      []models.Item // Just random notes that things I've missed
 	savefiles      map[string]string
+	DisplayVars    DisplayVars
 }
 
 func main() {
@@ -38,6 +39,10 @@ func main() {
 		errorLog.Fatal(err)
 	}
 
+	dv := DisplayVars{
+		NavBarColors: map[string]string{},
+	}
+
 	app := &application{
 		errorLog:      errorLog,
 		infoLog:       infoLog,
@@ -50,6 +55,7 @@ func main() {
 			"spells":         "internal/data/spells.yaml",
 			"characterStats": "internal/data/characterStats.yaml",
 		},
+		DisplayVars: dv,
 	}
 
 	app.loadData()

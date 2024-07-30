@@ -11,15 +11,25 @@ import (
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
+	data.DisplayVars.NavBarColors["character-sheet"] = "text-tOrange"
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "character-sheet"
 	app.render(w, http.StatusOK, "character.html", data)
 }
 
 func (app *application) characterSheet(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	// app.renderBlock(w, http.StatusOK, "zcharacterSheetInner.html", "character-sheet", data)
-
+	data.DisplayVars.NavBarColors["character-sheet"] = "text-tOrange"
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "character-sheet"
 	app.renderBlock(w, http.StatusOK, "character.html", "main", data)
+}
+
+func (app *application) nav(w http.ResponseWriter, r *http.Request) {
+
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "nav.html", "nav-inner", data)
 }
 
 func (app *application) spells(w http.ResponseWriter, r *http.Request) {
@@ -28,6 +38,8 @@ func (app *application) spells(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 
 	fmt.Println(data.String())
+	w.Header().Set("HX-Trigger", "pageChange") // You should be middleware
+	app.DisplayVars.CurrentPage = "spells"
 
 	// app.render(w, http.StatusOK, "spellbook.html", data)
 

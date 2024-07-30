@@ -10,9 +10,11 @@ import (
 
 // lookup for names of functions and their functions
 var functions = template.FuncMap{
-	"Mod":         models.AbilityScoreMod,
-	"ClassName":   models.ClassName,
-	"AttackBonus": models.AttackBonus,
+	"Mod":                models.AbilityScoreMod,
+	"ClassName":          models.ClassName,
+	"AttackBonus":        models.AttackBonus,
+	"NavBarColor":        getNavBarColor,
+	"isCurrentPageColor": isCurrentPageColor,
 }
 
 // holding structure for any data we want to pass to our
@@ -39,6 +41,7 @@ type templateData struct {
 	FightClubName     *string
 	CharacterDump     *string
 	SpellsDump        *string
+	DisplayVars       *DisplayVars
 }
 
 func (t *templateData) String() string {

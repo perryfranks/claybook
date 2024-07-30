@@ -130,6 +130,7 @@ func (app *application) newTemplateData(r *http.Request) *templateData {
 		FightClubName:     &app.characterStats.FightClubName,
 		CharacterDump:     &dump[0],
 		SpellsDump:        &dump[1],
+		DisplayVars:       &app.DisplayVars,
 	}
 }
 

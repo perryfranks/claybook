@@ -57,7 +57,8 @@ func (app *application) renderBlock(w http.ResponseWriter, status int, page stri
 
 	// get template from cache if it exists
 	// ts, ok := app.templateCache[page]
-	ts, ok := app.partialsCache[page]
+	// ts, ok := app.partialsCache[page]
+	ts, ok := app.templateCache[page]
 	if !ok {
 		err := fmt.Errorf("The template %s does not exist", page)
 		app.serverError(w, err)

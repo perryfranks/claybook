@@ -14,7 +14,7 @@ type application struct {
 	errorLog      *log.Logger
 	infoLog       *log.Logger
 	templateCache map[string]*template.Template
-	partialsCache map[string]*template.Template
+	// partialsCache map[string]*template.Template
 
 	// Character stuff
 	characterStats models.CharacterStats
@@ -33,7 +33,7 @@ func main() {
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
 	// template cache
-	templateCache, partialsCache, err := newTemplateData()
+	templateCache, err := newTemplateData()
 	if err != nil {
 		errorLog.Fatal(err)
 	}
@@ -42,7 +42,7 @@ func main() {
 		errorLog:      errorLog,
 		infoLog:       infoLog,
 		templateCache: templateCache,
-		partialsCache: partialsCache,
+		// partialsCache: partialsCache,
 
 		spellbook:      models.Spellbook{},
 		characterStats: models.CharacterStats{},

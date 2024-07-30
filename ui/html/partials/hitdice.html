@@ -1,4 +1,18 @@
-{{ define "hit-dice" }}
+{{ define "hit-dice-outer" }}
+<div id="hit-container" class="hit-dice">
+  <details>
+    <summary>
+      <h2 class="character-heading">Hit Dice</h2>
+    </summary>
+
+    <div class="container">
+      {{template "hit-dice" .}}
+    </div>
+  </details>
+</div>
+{{ end }}
+
+{{define "hit-dice" }}
 {{if .HitDiceSet}}
 <div id="hitdice-inner-container">
   {{ range .HitDiceSet }}
@@ -25,27 +39,6 @@
   {{else}}
   <p> No hit dice </p>
   {{end}}
-
-</div>
-
-{{ end }}
-
-
-
-{{ define "hit-dice-outer" }}
-
-<div id="hit-container" class="hit-dice">
-
-  <details>
-    <summary>
-      <h2 class="character-heading">Hit Dice</h2>
-    </summary>
-
-    <div class="container">
-      {{template "hit-dice" .}}
-    </div>
-
-  </details>
 
 </div>
 {{ end }}

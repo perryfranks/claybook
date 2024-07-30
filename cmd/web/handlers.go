@@ -17,7 +17,9 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 func (app *application) characterSheet(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	app.renderBlock(w, http.StatusOK, "zcharacterSheetInner.html", "character-sheet", data)
+	// app.renderBlock(w, http.StatusOK, "zcharacterSheetInner.html", "character-sheet", data)
+
+	app.renderBlock(w, http.StatusOK, "character.html", "main", data)
 }
 
 func (app *application) spells(w http.ResponseWriter, r *http.Request) {
@@ -27,8 +29,9 @@ func (app *application) spells(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(data.String())
 
-	app.render(w, http.StatusOK, "spellbook.html", data)
+	// app.render(w, http.StatusOK, "spellbook.html", data)
 
+	app.renderBlock(w, http.StatusOK, "spellbook.html", "main", data)
 }
 
 func (app *application) updateSpellSlot(w http.ResponseWriter, r *http.Request) {
@@ -73,7 +76,9 @@ func (app *application) updateSpellSlot(w http.ResponseWriter, r *http.Request) 
 
 func (app *application) edit(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "edit.html", data)
+	// app.render(w, http.StatusOK, "edit.html", data)
+
+	app.renderBlock(w, http.StatusOK, "edit.html", "main", data)
 }
 
 func (app *application) useHitDice(w http.ResponseWriter, r *http.Request) {
@@ -175,7 +180,9 @@ func (app *application) save(w http.ResponseWriter, r *http.Request) {
 	app.characterStats.Save(app.savefiles["characterStats"])
 	models.SaveSpellbook(app.savefiles["spells"], app.spellbook)
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	// http.Redirect(w, r, "/", http.StatusSeeOther)
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "character.html", "main", data)
 }
 
 func (app *application) load(w http.ResponseWriter, r *http.Request) {
@@ -190,24 +197,31 @@ func (app *application) load(w http.ResponseWriter, r *http.Request) {
 		app.errorLog.Println(err)
 	}
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	// http.Redirect(w, r, "/", http.StatusSeeOther)
+
+	data := app.newTemplateData(r)
+	app.renderBlock(w, http.StatusOK, "character.html", "main", data)
 }
 
 func (app *application) classTraits(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "classTraits.html", data)
+	// app.render(w, http.StatusOK, "classTraits.html", data)
+	app.renderBlock(w, http.StatusOK, "classTraits.html", "main", data)
 	return
 }
 
 func (app *application) fightClub(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "fightclub.html", data)
+	// app.render(w, http.StatusOK, "fightclub.html", data)
+	app.renderBlock(w, http.StatusOK, "fightclub.html", "main", data)
 	return
 }
 
 func (app *application) features(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "features.html", data)
+	// app.render(w, http.StatusOK, "features.html", data)
+	app.renderBlock(w, http.StatusOK, "features.html", "main", data)
+	// app.renderBlock(w, http.StatusOK, "misc.html", "main", data)
 	return
 }
 
@@ -300,14 +314,15 @@ func (app *application) updateHpTemp(w http.ResponseWriter, r *http.Request) {
 func (app *application) misc(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "misc.html", data)
+	// app.render(w, http.StatusOK, "misc.html", data)
+	app.renderBlock(w, http.StatusOK, "misc.html", "main", data)
 }
 
 func (app *application) inventory(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	fmt.Println("inventory called")
-	app.render(w, http.StatusOK, "inventory.html", data)
+	// app.render(w, http.StatusOK, "inventory.html", data)
+	app.renderBlock(w, http.StatusOK, "inventory.html", "main", data)
 }
 
 func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
@@ -347,7 +362,8 @@ func (app *application) inventoryAdd(w http.ResponseWriter, r *http.Request) {
 func (app *application) dumpCharacter(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "dataDump.html", data)
+	// app.render(w, http.StatusOK, "dataDump.html", data)
+	app.renderBlock(w, http.StatusOK, "dataDump.html", "main", data)
 
 }
 

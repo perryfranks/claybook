@@ -1,15 +1,16 @@
 {{define "title"}}Spell Book {{end}}
 
 {{define "main"}}
-<div class="spellpage">
+<div class="flex break-words">
   {{template "spellslotcard" .}}
-  <div class='spells'>
+  <div class="flex-grow w-full pl-2">
     {{if .SpellsByLevel}}
     {{range .SpellsByLevel}}
     <div>
       <details open=true>
         <summary class="level-heading">
           <h3 class="p-1 mr-36 mb-1 hover:text-tMaroon active:text-tOrange">Level:
+            <!-- <h3 class="p-1 mb-1 hover:text-tMaroon active:text-tOrange">Level: -->
             {{.Level}}
           </h3>
         </summary>

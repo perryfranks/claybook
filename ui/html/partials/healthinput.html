@@ -1,8 +1,8 @@
 {{define "health-buttons"}}
 <div id="health-buttons" class="health-buttons">
   <details>
-    <summary>
-      <h2 class="character-heading">Update Health</h2>
+    <summary class=group>
+      <h2 class="mx-auto pt-2 text-center group-hover:text-tMaroon group-active:text-tOrange">Update Health</h2>
     </summary>
     <div id="health-buttons-inner">
       {{template "health-buttons-inner" .}}
@@ -16,19 +16,19 @@
 <!-- I think we could trigger the table to send a request if we setup an event to be emitted -->
 {{define "health-buttons-inner"}}
 <div class="flex justify-center">
-  <form class="inline-form" hx-post="/character/damage" hx-target="#health-buttons-inner" hx-swap="innerHTML">
+  <form class="inline-form mx-2" hx-post="/character/damage" hx-target="#health-buttons-inner" hx-swap="innerHTML">
     Damage: <input type="number" name="damage" value="0">
-    <button class="bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
+    <button class="mr-2 bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
       type="submit" class="spell-button">Hurt</button>
   </form>
-  <form class="inline-form" hx-post="/character/heal" hx-target="#health-buttons-inner" hx-swap="innerHTML">
+  <form class="inline-form mx-2" hx-post="/character/heal" hx-target="#health-buttons-inner" hx-swap="innerHTML">
     Heal: <input type="number" name="heal" value="0">
-    <button class="bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
+    <button class="mr-2 bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
       type="submit" class="spell-button">Heal</button>
   </form>
-  <form class="inline-form" hx-post="/character/temp" hx-target="#health-buttons-inner" hx-swap="innerHTML">
+  <form class="inline-form mx-2" hx-post="/character/temp" hx-target="#health-buttons-inner" hx-swap="innerHTML">
     Temp: <input type="number" name="temp" value="0">
-    <button class="bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
+    <button class="mr-2 bg-tTeal text-white hover:bg-tBurntUmber active:bg-tOrange active:ring active:ring-tMaroon"
       type="submit" class="spell-button">Temp</button>
   </form>
 </div>

@@ -6,12 +6,15 @@
       <span class="justify-center group-hover:text-tOrange">{{.Name}}</span>
       <div class="justify-end">
         <div class="mx-5 flex items-center justify-between pb-2">
-          <span class="mx-5 "><button
-              class="bg-tMaroon text-white hover:bg-tBurntUmber active:bg-tBeige active:ring active:ring-tOrange">Cast</button></span>
+          <form hx-post="/spells/slots" hx-target="#spellslot-container" hx-swap="outerHTML">
+            <input type="hidden" name="slotlevel" value="{{.Level}}">
+            <span class="mx-5 "><button
+                class="bg-tMaroon text-white hover:bg-tBurntUmber active:bg-tBeige active:ring active:ring-tOrange">Cast</button></span>
+          </form>
           <span class="justify-end"><button
               class="bg-tMaroon text-white hover:bg-tBurntUmber active:bg-tBeige active:ring active:ring-tOrange">Copy</button></span>
         </div>
-
+      </div>
     </summary>
     <div class="py-1">
       <p class="card-text">{{.Description}}</p><br>

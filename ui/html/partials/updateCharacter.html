@@ -1,7 +1,10 @@
 {{define "update-character"}}
-<div id="character-editor" class="mx-4">
+<div id="character-editor" class="mx-4 my-2">
   <form hx-post="/updateCharacter" hx-target="#character-editor" hx-swap="outerHTML">
-    <textarea name="character">{{.CharacterDump}}</textarea>
+    <textarea name="character"
+      class="h-4/5 min-h-96 resize-y border-2 border-solid leading-relaxed shadow-lg hover:border-tMaroon focus:border-tOrange ">
+      {{.CharacterDump}}
+    </textarea>
     <button
       class="h-4/6 resize-y border-2 border-tDarkSage bg-tMaroon leading-relaxed text-white shadow-lg hover:bg-tBurntUmber focus:border-tTeal active:bg-tBeige active:ring active:ring-tOrange"
       type="submit" value="Submit">Submit</button>
@@ -11,9 +14,12 @@
 
 
 {{define "update-spells"}}
-<div id="spells-editor" class="mx-4 mb-2">
+<div id="spells-editor" class="mx-4 my-2">
   <form hx-post="/updateSpells" hx-target="#spells-editor" hx-swap="outerHTML">
-    <textarea name="spells">{{.SpellsDump}}</textarea>
+    <textarea name="spells"
+      class="h-4/5 min-h-96 resize-y border-2 border-solid leading-relaxed shadow-lg hover:border-tMaroon focus:border-tOrange ">
+      {{.SpellsDump}}
+    </textarea>
     <button
       class="h-4/6 resize-y border-2 border-tDarkSage bg-tMaroon leading-relaxed text-white shadow-lg hover:bg-tBurntUmber focus:border-tTeal active:bg-tBeige active:ring active:ring-tOrange"
       type="submit" value="Submit">Submit</button>

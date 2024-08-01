@@ -3,30 +3,54 @@
 {{define "main"}}
 <!-- <h2 class="chracter-heading"> Character sheet </h2> -->
 <!---->
-<div class="mx-3">
-  {{ template "abilityscores" . }}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+<!-- <div class="mx-3 flex-col justify-center grow w-11/12"> -->
+<div class="mx-3 pt-2 text-center">
+  <div>
+    {{ template "abilityscores" . }}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  </div>
 
-  {{ template "skills" . }}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  <div>
+    {{ template "skills" . }}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
 
-  {{ template "combat-stats" . }}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  </div>
 
-  {{ template "attacks" .}}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  <div>
+    {{ template "combat-stats" . }}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
 
-  {{ template "moxie" . }}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  </div>
 
-  {{ template "saving-throws" . }}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  <div>
+    {{ template "attacks" .}}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
 
-  {{ template "hit-dice-outer" . }}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  </div>
 
-  {{ template "languages-and-profs" . }}
-  <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  <div>
+    {{ template "moxie" . }}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+
+  </div>
+
+  <div>
+    {{ template "saving-throws" . }}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  </div>
+
+
+  <div>
+    {{ template "hit-dice-outer" . }}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  </div>
+
+
+  <div>
+    {{ template "languages-and-profs" . }}
+    <hr class="mb-2 mt-3 h-px w-2/3 border-0 bg-tCharcoal mx-auto drop-shadow-xl">
+  </div>
+
 
 </div>
 

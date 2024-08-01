@@ -15,7 +15,7 @@ Things that would be nice to have:
 - GO 
 - HTMX 
 - TAILWINDCSS 
-- Like 1 javascript function
+- ~Like 1 javascript function
 - YAML goodness
 - Heavily based off and referenced Let's Go by Alex Edwards
 
@@ -23,6 +23,10 @@ Builds for systems should be available in the builds folder but HTML is not embe
  
 I would recommend building and running for your system with the go run ./cmd/web/
 
+### Screenshots
+Character Sheet:
 ![character-screenshot](/screenshots/charactersheet.png)
+Spell List:
 ![spells-screenshot](/screenshots/spells.png)
+Inventory:
 ![inventory-screenshot](/screenshots/inventory.png)
